@@ -1,2 +1,0 @@
-loam_velodyne
--DCATKIN_DEVEL_PREFIX=/home/umichaerolab/Music/robotrepo/Velodyne/devel -DCMAKE_INSTALL_PREFIX=/home/umichaerolab/Music/robotrepo/Velodyne/install -G Unix Makefiles
