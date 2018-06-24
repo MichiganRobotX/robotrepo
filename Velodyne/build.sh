@@ -10,4 +10,4 @@ cd ../../..
 catkin_make
 
 # Source from this folder
-echo "source devel/setup.bash" >> ~/.bashrc
+source devel/setup.bash
