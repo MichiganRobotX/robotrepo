@@ -1,0 +1,32 @@
+#Temp files
+*~
+**~
+
+# Build objects
+lib/
+bin/
+build/
+docs/
+
+# Auto generated code
+cfg/cpp/
+cfg/*.cfgc
+cfg/*
+msg_gen/
+msg/lisp/
+src/*/cfg/*
+
+# CMake files
+CMakeCache.txt
+cmake_install.cmake
+CMakeFiles/
+src/*/Makefile
+src/*/cmake_install.cmake
+src/*/CMakeFiles/
+
+# Eclipse temporary files
+.cproject
+.project
+.pydevproject
+
+
