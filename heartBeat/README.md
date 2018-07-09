@@ -1,5 +1,5 @@
 # Installing and Building HeartBeat
-1) Open a terminal and run ```./build.sh```
+1) Open a terminal and run ```./install```
 
 2) This will install a package named ```heartbeat``` with a node that takes the following topics as inputs:
 	1. GPS Data Topic
