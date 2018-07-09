@@ -7,12 +7,7 @@
 	3. Laptop  Data Topic
 	4. Controller  Data Topic
 	5. LiDAR  Data Topic
-
-and produces the following status signals:
-* <strong>1 (abort) → </strong> <em>if controller and laptop not connected</em>
-* <strong>2 (manual | sensors not running) → </strong> <em>if controller and laptop connected</em>
-* <strong>3 (manual | sensors running) → </strong> <em>if all sensors, laptop and controller connected and controller sending signals</em>
-* <strong>4 (autonomous) → </strong> <em>if all sensors, laptop and controller connected and controller not sending signals</em>
+and produces signals as per the official competition [communications protocol](https://www.robotx.org/images/RobotX-2018-Communications-Protocol_v0.5.pdf)
 
 3) There are 2 ways to run the heartbeat deamon:
 ```rosrun heartbeat signal``` or ``` roslaunch heartbeat daemon.launch```

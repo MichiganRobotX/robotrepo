@@ -14,7 +14,13 @@ find_package(catkin REQUIRED COMPONENTS
 # add message files
 add_message_files(
 	FILES 
-	beat.msg)
+	heartBeat.msg
+	entranceExit.msg
+	scanCode.msg
+	dockTask.msg
+	detectDeliver.msg
+	finalMsg.msg
+	)
 
 # add dependencies require to generate messages
 generate_messages(DEPENDENCIES std_msgs)
