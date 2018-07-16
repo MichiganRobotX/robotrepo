@@ -35,6 +35,8 @@ sudo apt-get install terminator
 # Fix rosserial setup bugs
 cd Arduino/libraries
 rm -rf ros_lib
+# the next command needs to be redone with roscore running, not sure
+# how to do that yet from a bash script 
 rosrun rosserial_arduino make_libraries.py .
 cd ~
 
