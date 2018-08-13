@@ -105,8 +105,9 @@ sudo apt-get install ros-kinetic-robot-localization
 sudo apt-get install ros-kinetic-robot-*
 
 # install arduino
-wget https://www.arduino.cc/download.php?f=/arduino-nightly-linux64.tar.xz
-tar -xf download.php\?f\=%2Farduino-nightly-linux64.tar.xz 
+wget -O /tmp/arduino-nightly.tar.xz https://www.arduino.cc/download.php?f=/arduino-nightly-linux64.tar.xz
+cd /tmp/
+tar -xf arduino-nightly.tar.xz 
 cd arduino-nightly/
 ./install.sh
 
