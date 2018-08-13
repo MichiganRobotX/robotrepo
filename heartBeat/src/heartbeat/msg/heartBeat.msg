@@ -1,7 +1,8 @@
 string msgID
 string date
 string time
-float32 lat
+float32 latitude
+float32 longitude
 string NS
 string EW
 string teamID

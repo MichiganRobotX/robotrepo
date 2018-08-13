@@ -5,7 +5,12 @@ messages and publish signal accordingly for heartbeat
 #include <ros/ros.h>
 #include <heartbeat/heartBeat.h>
 #include <heartbeat/finalMsg.h>
+
+#include <sensor_msgs/CameraInfo.h>
+#include <sensor_msgs/LaserScan.h>
+#include <sensor_msgs/NavSatFix.h>
 #include <sensor_msgs/JointState.h>
+
 #include <sstream>
 #include <bits/stdc++.h>
 
@@ -39,10 +44,15 @@ bool laptop = false;
 heartbeat::heartBeat msg;
 heartbeat::finalMsg final;
 
-
 const string msgID = "$RXHRB";
 const string teamID = "AUVS9";
 const int checksum = 06;
+
+/////////////////////////
+/* Temporary Parameters*/
+/////////////////////////
+float prevLat, prevLong;
+
 
 ///////////////////////
 /* Method Definitions*/
@@ -54,11 +64,32 @@ If message is heard on respective topic, then flag
 is set to true, else after every loop, flag is set
 to false. rate at which message is published is 2Hz.
 */
-void listener_gps(const sensor_msgs::JointState &msg){ gps = true; }
-void listener_lidar(const sensor_msgs::JointState &msg){ lidar = true; }
-void listener_camera(const sensor_msgs::JointState &msg){ camera = true; }
-void listener_controller(const sensor_msgs::JointState &msg){ controller = true; }
-void listener_laptop(const sensor_msgs::JointState &msg){ laptop = true; }
+void listener_gps(const sensor_msgs::NavSatFix &msg1){
+	gps = true;
+	msg.latitude = msg1.latitude;
+	msg.longitude = msg1.longitude;
+
+	if(msg.latitude - prevLat >= 0)
+		msg.NS = "N";
+	else
+		msg.NS = "S";
+
+	if(msg.longitude - prevLong >= 0)
+		msg.EW = "E";
+	else
+		msg.EW = "W";
+
+	prevLat = msg.latitude;
+	prevLong = msg.longitude;
+}
+
+void listener_lidar(const sensor_msgs::LaserScan &msg1){ lidar = true; }
+
+void listener_camera(const sensor_msgs::CameraInfo &msg1){ camera = true; }
+
+void listener_controller(const sensor_msgs::JointState &msg1){ controller = true; }
+
+void listener_laptop(const sensor_msgs::JointState &msg1){ laptop = true; }
 
 
 ///////////////////////////////
@@ -132,7 +163,7 @@ Method to convert heartbeatmsg to finalMsg and display
 */
 void displayMsg() {
 	final.message = msg.msgID + ',' + msg.date + ',' + msg.time + ',' + \
-		to_string(msg.lat) + ',' + msg.NS + ',' + msg.EW + ',' + msg.teamID + \
+		to_string(msg.latitude) + ',' + msg.NS + ',' + to_string(msg.longitude) + ',' + msg.EW + ',' + msg.teamID + \
 		',' + to_string(msg.sysMode) + ',' + to_string(msg.AUVStatus) + '*' + \
 		formatNum(msg.checksum);
 
@@ -148,9 +179,9 @@ int main(int argc, char **argv) {
 	NodeHandle nh;
 	
 	// subscribe to all topics being published
-	sub_gps = nh.subscribe("/joint_states", 10000, &listener_gps);
-	sub_lidar = nh.subscribe("/lidar_data", 10000, &listener_lidar);
-	sub_camera = nh.subscribe("/camera_data", 10000, &listener_camera);
+	sub_gps = nh.subscribe("/an_device/NavSatFix", 10000, &listener_gps);
+	sub_lidar = nh.subscribe("/vel1/scan", 10000, &listener_lidar);
+	sub_camera = nh.subscribe("/ladybug_camera/camera0/camera_info", 10000, &listener_camera);
 	sub_controller = nh.subscribe("/controller_data", 10000, &listener_controller);
 	sub_laptop = nh.subscribe("/laptop_data", 10000, &listener_laptop);
 
@@ -158,16 +189,22 @@ int main(int argc, char **argv) {
 	pub_signal = nh.advertise<heartbeat::heartBeat>("/heartbeat", 10000);
 	pub_message = nh.advertise<heartbeat::finalMsg>("/messages/heartbeat", 10000);
 	
-	Rate rate(2);
+	// rate set to 1 because camera frequency <1.5
+	Rate rate(1);
 	
 	while(ok()){
-		// register timestamp and date
+		ROS_INFO_STREAM("controller: "<<controller<<" | laptop: "<<laptop<<" | gps: "<<gps<<" | camera: "<<camera<<" | lidar: "<<lidar);
+		
+		/*******************************************
+		Set Time Stamp, Date, msgID, teamID,checksum
+		*******************************************/
 		setTimestamp();
 		setDate();
 		setParams();
 
-		// ROS_INFO_STREAM("controller: "<<controller<<" | laptop: "<<laptop<<" | gps: "<<gps<<" | camera: "<<camera<<" | lidar: "<<lidar);
-		
+		/*****************
+		Set AUVStatus here
+		******************/
 		// set states for the signal
 		if(controller==false || laptop==false)
 			msg.AUVStatus = 1;
@@ -187,7 +224,7 @@ int main(int argc, char **argv) {
 		else if (msg.AUVStatus == 3)
 			ROS_INFO("All Sensors connected and boat operating in Manual Mode");
 		else
-			ROS_INFO("Boat operating in autonomous mode");	
+			ROS_INFO("Boat operating in autonomous mode");
 
 		// publish signal
 		pub_signal.publish(msg);
