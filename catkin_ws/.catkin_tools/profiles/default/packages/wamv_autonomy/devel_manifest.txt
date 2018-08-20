@@ -1,0 +1,5 @@
+wamv_autonomy
+/home/dasc/Downloads/robotrepo/catkin_ws/devel/.private/wamv_autonomy/share/wamv_autonomy/cmake/wamv_autonomyConfig-version.cmake /home/dasc/Downloads/robotrepo/catkin_ws/devel/share/wamv_autonomy/cmake/wamv_autonomyConfig-version.cmake
+/home/dasc/Downloads/robotrepo/catkin_ws/devel/.private/wamv_autonomy/share/wamv_autonomy/cmake/wamv_autonomyConfig.cmake /home/dasc/Downloads/robotrepo/catkin_ws/devel/share/wamv_autonomy/cmake/wamv_autonomyConfig.cmake
+/home/dasc/Downloads/robotrepo/catkin_ws/devel/.private/wamv_autonomy/lib/wamv_autonomy/straightLine /home/dasc/Downloads/robotrepo/catkin_ws/devel/lib/wamv_autonomy/straightLine
+/home/dasc/Downloads/robotrepo/catkin_ws/devel/.private/wamv_autonomy/lib/pkgconfig/wamv_autonomy.pc /home/dasc/Downloads/robotrepo/catkin_ws/devel/lib/pkgconfig/wamv_autonomy.pc

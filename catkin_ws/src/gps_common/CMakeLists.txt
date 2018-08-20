@@ -44,6 +44,9 @@ add_executable(${PROJECT_NAME}/utm_odometry_node src/utm_odometry_node.cpp)
 set_target_properties(${PROJECT_NAME}/utm_odometry_node PROPERTIES OUTPUT_NAME "utm_odometry_node")
 target_link_libraries(${PROJECT_NAME}/utm_odometry_node ${catkin_LIBRARIES})
 add_dependencies(${PROJECT_NAME}/utm_odometry_node ${PROJECT_NAME}_generate_messages_cpp)
+add_executable(printGPS src/printGPS.cpp)
+target_link_libraries(printGPS ${catkin_LIBRARIES})
+
 
 #############
 ## Install ##

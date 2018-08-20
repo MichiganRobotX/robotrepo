@@ -1,8 +1,14 @@
-# build msgs 
-catkin_make
+# build heartbeat
+catkin build heartbeat
 
-#build nodes
-catkin_make
+# build localization package
+catkin build gps_common robot_localization
+
+# build simulator
+catkin build kingfisher_description robotx_gazebo wamv_description
+
+# build task packages 
+catkin build wamv_autonomy
 
 # source bash file
 source devel/setup.bash

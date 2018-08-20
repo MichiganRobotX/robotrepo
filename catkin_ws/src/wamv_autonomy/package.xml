@@ -6,4 +6,9 @@
   <maintainer email="dhanjalsahib@gmail.com">Sahib Dhanjal</maintainer>
   <license>MIT</license>
   <buildtool_depend>catkin</buildtool_depend>
+  <depend>std_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>gazebo_msgs</depend>
 </package>
