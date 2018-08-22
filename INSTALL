@@ -115,6 +115,10 @@ cd arduino-nightly/
 sudo apt-get install ros-kinetic-rosserial-*
 sudo apt-get install ros-kinetic-rosserial-arduino
 
+# Install Dependencies for Gazebo and Simulation
+sudo apt-get install ros-kinetic-velodyne*
+sudo apt-get install ros-kinetic-hector-*
+sudo apt-get install ros-kinetic-teleop-*
 
 # update and upgrade
 sudo apt update && sudo apt upgrade
