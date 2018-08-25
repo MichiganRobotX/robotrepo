@@ -409,24 +409,6 @@ int main(int argc, char *argv[]) {
 
 				}
 
-
-				std::cout << "an_packet->id: " << an_packet->id << std::endl;
-
-				if(an_packet->id == packet_id_raw_sensors)
-				{
-					std::cout << "body_velocity" << std::endl;
-					if (decode_raw_sensors_packet(&raw_sensors_packet, an_packet) == 0)
-					{
-						twist_msg.linear.x=raw_sensors_packet.accelerometers[0];
-						twist_msg.linear.y=raw_sensors_packet.accelerometers[1];
-						twist_msg.linear.z=raw_sensors_packet.accelerometers[2];
-
-						std::cout << "decode_raw_sensors_packet accelerometers:" << twist_msg.linear.x << "	" << twist_msg.linear.y << "	" << twist_msg.linear.z << std::endl;
-
-					}
-
-				}
-
 				// quaternion orientation standard deviation packet //
 				if (an_packet->id == packet_id_quaternion_orientation_standard_deviation)
 				{
