@@ -12,6 +12,9 @@ find_package(catkin REQUIRED
   std_msgs
   nav_msgs
   sensor_msgs
+  gazebo_msgs
+  geometry_msgs
+  std_msgs
 )
 
 #######################################
@@ -44,6 +47,10 @@ add_executable(${PROJECT_NAME}/utm_odometry_node src/utm_odometry_node.cpp)
 set_target_properties(${PROJECT_NAME}/utm_odometry_node PROPERTIES OUTPUT_NAME "utm_odometry_node")
 target_link_libraries(${PROJECT_NAME}/utm_odometry_node ${catkin_LIBRARIES})
 add_dependencies(${PROJECT_NAME}/utm_odometry_node ${PROJECT_NAME}_generate_messages_cpp)
+
+
+add_executable(wamv_odometry src/wamv_odom.cpp)
+target_link_libraries(wamv_odometry ${catkin_LIBRARIES})
 
 
 #############

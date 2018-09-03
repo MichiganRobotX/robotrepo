@@ -24,6 +24,8 @@ int main(int argc, char** argv){
     tf::Transform tf_base_cam;
     tf::Transform tf_base_vel;
     tf::Transform tf_base_map;
+    tf::Transform tf_gps_velo;
+
 
     while(nh.ok()){
         tf_base_map.setOrigin(tf::Vector3(0.0, 0.0, -0.5));
@@ -41,11 +43,18 @@ int main(int argc, char** argv){
         tf_base_cam.setOrigin(tf::Vector3(2.4, 0.0, 1.5));
         tf_base_cam.setRotation(tf::Quaternion(0, 0, 0, 1));
 
+        tf_gps_velo.setOrigin(tf::Vector3(0.0, 0.0, 0.2));
+        tf_gps_velo.setRotation(tf::Quaternion(0, 0, 0, 1));
+
+
         br.sendTransform(tf::StampedTransform(tf_base_map, ros::Time::now(), "base_link", "map"));
         br.sendTransform(tf::StampedTransform(tf_base_vel, ros::Time::now(), "base_link", "velodyne"));
         br.sendTransform(tf::StampedTransform(tf_base_cam, ros::Time::now(), "base_link", "camera"));
         br.sendTransform(tf::StampedTransform(tf_base_gps, ros::Time::now(), "base_link", "gps"));
         br.sendTransform(tf::StampedTransform(tf_base_imu, ros::Time::now(), "base_link", "imu"));
+        br.sendTransform(tf::StampedTransform(tf_gps_velo, ros::Time::now(), "gps", "velodyne"));
+
+        ROS_WARN("Publishing Transform Frames...");
 
         rate.sleep();
     }

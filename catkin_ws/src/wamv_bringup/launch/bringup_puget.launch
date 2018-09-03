@@ -1,12 +1,13 @@
 <?xml version="1.0"?>
 <launch>
+	<param name ="/use_sim_time" value="true"/>
+
 	<!-- Set params -->
 	<arg name="port" default="/dev/ttyACM0" />
 	<arg name="rviz" default="false" />
 	<arg name="drivers" default="false" />
 	<arg name="motors" default="false" />
-
-
+	<arg name="gazebo" default="false" />
 	
 	<!-- DRIVER NODES -->
 	<group if="$(arg drivers)">
@@ -35,15 +36,17 @@
 
 
 	<!-- DEPENDENCY NODES -->
-	<!-- launch transform publisher -->
-	<node pkg="wamv_bringup" type="wamv_tf_publisher" name="wamv_tf_publisher" />
-
-	<!-- launch package to convert NavSat to UTM -->
-	<node pkg="gps_common" type="utm_odometry_node" name="utm_transform" clear_params="true" >
+	<!-- launch package to convert NavSat to odometry -->
+	<node pkg="gps_common" type="wamv_odometry" name="wamv_odometry" clear_params="true" >
 		<remap from="/navsat" to="/an_device/NavSatFix"/>
+		<remap from="/imu" to="/an_device/Imu"/>
 		<remap from="/gps" to="/gps/odom"/>
+		<param name="sim" value="$(arg gazebo)" />
 	</node>
 
-
+	<!-- Launch Gazebo -->
+	<group if="$(arg gazebo)">
+		<include file="$(find robotx_gazebo)/launch/sandisland.launch"> </include>
+	</group>
 
 </launch>

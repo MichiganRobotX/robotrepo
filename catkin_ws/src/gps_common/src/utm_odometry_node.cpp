@@ -83,7 +83,7 @@ int main (int argc, char **argv) {
 
   priv_node.param<std::string>("frame_id", frame_id, "");
   priv_node.param<std::string>("child_frame_id", child_frame_id, "");
-  priv_node.param<double>("rot_covariance", rot_cov, 99999.0);
+  priv_node.param<double>("rot_covariance", rot_cov, 99.0);
 
   odom_pub = node.advertise<nav_msgs::Odometry>("/gps", 10);
 
