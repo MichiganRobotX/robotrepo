@@ -16,6 +16,10 @@ catkin_package()
 
 include_directories(include ${catkin_INCLUDE_DIRS})
 
+# Simulator
+add_executable(sim nodes/sim.cpp)
+target_link_libraries(sim ${catkin_LIBRARIES})
+
 # Task 1 : Straight Line task
 add_executable(straightLine nodes/straightLine.cpp)
 target_link_libraries(straightLine ${catkin_LIBRARIES})

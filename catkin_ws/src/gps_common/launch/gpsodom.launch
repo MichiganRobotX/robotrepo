@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+  <node pkg="gps_common" type="utm_odometry_node" name="utm_transform" clear_params="true" >
+    <remap from="/navsat" to="/an_device/NavSatFix"/>
+    <remap from="/gps" to="/gps/odom"/>
+  </node>
+
+</launch>

@@ -17,7 +17,7 @@ std::string frame_id, child_frame_id;
 double rot_cov;
 
 void callback(const sensor_msgs::NavSatFixConstPtr& fix) {
-  if (fix->status.status != sensor_msgs::NavSatStatus::STATUS_NO_FIX) {
+  if (fix->status.status == sensor_msgs::NavSatStatus::STATUS_NO_FIX) {
     ROS_INFO("No fix.");
     return;
   }
@@ -42,14 +42,14 @@ void callback(const sensor_msgs::NavSatFixConstPtr& fix) {
 
     odom.child_frame_id = child_frame_id;
 
-    odom.pose.pose.position.x = easting;
+	odom.pose.pose.position.x = easting;
     odom.pose.pose.position.y = northing;
     odom.pose.pose.position.z = fix->altitude;
     
     odom.pose.pose.orientation.x = 0;
     odom.pose.pose.orientation.y = 0;
     odom.pose.pose.orientation.z = 0;
-    odom.pose.pose.orientation.w = 1;
+    odom.pose.pose.orientation.w = 1;	
     
     // Use ENU covariance to build XYZRPY covariance
     boost::array<double, 36> covariance = {{
@@ -72,6 +72,7 @@ void callback(const sensor_msgs::NavSatFixConstPtr& fix) {
 
     odom.pose.covariance = covariance;
     odom_pub.publish(odom);
+
   }
 }
 
@@ -84,9 +85,9 @@ int main (int argc, char **argv) {
   priv_node.param<std::string>("child_frame_id", child_frame_id, "");
   priv_node.param<double>("rot_covariance", rot_cov, 99999.0);
 
-  odom_pub = node.advertise<nav_msgs::Odometry>("odom", 10);
+  odom_pub = node.advertise<nav_msgs::Odometry>("/gps", 10);
 
-  ros::Subscriber fix_sub = node.subscribe("/an_device/NavSatFix", 10, callback);
+  ros::Subscriber fix_sub = node.subscribe("/navsat", 10, callback);
 
   ROS_WARN("latitude/Longitude to UTM Node Started..");
 

@@ -1,4 +1,0 @@
-kingfisher_description
-/home/dasc/Downloads/robotrepo/catkin_ws/devel/.private/kingfisher_description/share/kingfisher_description/cmake/kingfisher_descriptionConfig-version.cmake /home/dasc/Downloads/robotrepo/catkin_ws/devel/share/kingfisher_description/cmake/kingfisher_descriptionConfig-version.cmake
-/home/dasc/Downloads/robotrepo/catkin_ws/devel/.private/kingfisher_description/share/kingfisher_description/cmake/kingfisher_descriptionConfig.cmake /home/dasc/Downloads/robotrepo/catkin_ws/devel/share/kingfisher_description/cmake/kingfisher_descriptionConfig.cmake
-/home/dasc/Downloads/robotrepo/catkin_ws/devel/.private/kingfisher_description/lib/pkgconfig/kingfisher_description.pc /home/dasc/Downloads/robotrepo/catkin_ws/devel/lib/pkgconfig/kingfisher_description.pc

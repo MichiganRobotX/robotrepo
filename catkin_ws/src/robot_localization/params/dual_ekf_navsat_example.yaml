@@ -3,7 +3,7 @@
 ekf_se_odom:
   frequency: 30
   sensor_timeout: 0.1
-  two_d_mode: false
+  two_d_mode: true
   transform_time_offset: 0.0
   transform_timeout: 0.0
   print_diagnostics: true
@@ -11,7 +11,7 @@ ekf_se_odom:
 
   map_frame: map
   odom_frame: gps
-  base_link_frame: imu
+  base_link_frame: gps
   world_frame: gps
 
   odom0: /odometry/gps
@@ -82,7 +82,7 @@ ekf_se_map:
 
   map_frame: map
   odom_frame: gps
-  base_link_frame: imu
+  base_link_frame: gps
   world_frame: map
 
   odom0: /odometry/gps

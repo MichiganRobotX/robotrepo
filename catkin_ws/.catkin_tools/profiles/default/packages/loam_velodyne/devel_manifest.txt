@@ -1,9 +1,0 @@
-loam_velodyne
-/home/dasc/Downloads/robotrepo/catkin_ws/devel/.private/loam_velodyne/share/loam_velodyne/cmake/loam_velodyneConfig-version.cmake /home/dasc/Downloads/robotrepo/catkin_ws/devel/share/loam_velodyne/cmake/loam_velodyneConfig-version.cmake
-/home/dasc/Downloads/robotrepo/catkin_ws/devel/.private/loam_velodyne/share/loam_velodyne/cmake/loam_velodyneConfig.cmake /home/dasc/Downloads/robotrepo/catkin_ws/devel/share/loam_velodyne/cmake/loam_velodyneConfig.cmake
-/home/dasc/Downloads/robotrepo/catkin_ws/devel/.private/loam_velodyne/lib/libloam.so /home/dasc/Downloads/robotrepo/catkin_ws/devel/lib/libloam.so
-/home/dasc/Downloads/robotrepo/catkin_ws/devel/.private/loam_velodyne/lib/pkgconfig/loam_velodyne.pc /home/dasc/Downloads/robotrepo/catkin_ws/devel/lib/pkgconfig/loam_velodyne.pc
-/home/dasc/Downloads/robotrepo/catkin_ws/devel/.private/loam_velodyne/lib/loam_velodyne/multiScanRegistration /home/dasc/Downloads/robotrepo/catkin_ws/devel/lib/loam_velodyne/multiScanRegistration
-/home/dasc/Downloads/robotrepo/catkin_ws/devel/.private/loam_velodyne/lib/loam_velodyne/transformMaintenance /home/dasc/Downloads/robotrepo/catkin_ws/devel/lib/loam_velodyne/transformMaintenance
-/home/dasc/Downloads/robotrepo/catkin_ws/devel/.private/loam_velodyne/lib/loam_velodyne/laserOdometry /home/dasc/Downloads/robotrepo/catkin_ws/devel/lib/loam_velodyne/laserOdometry
-/home/dasc/Downloads/robotrepo/catkin_ws/devel/.private/loam_velodyne/lib/loam_velodyne/laserMapping /home/dasc/Downloads/robotrepo/catkin_ws/devel/lib/loam_velodyne/laserMapping

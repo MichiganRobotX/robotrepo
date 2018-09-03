@@ -43,7 +43,7 @@
 
       <!-- Placeholders for input remapping. Set your topic names as the "to" values. -->
       <remap from="imu/data" to="/an_device/Imu"/>
-      <!-- <remap from="odometry/filtered" to=""/> -->
+      <remap from="odometry/filtered" to="/GPS_UTM"/>
       <remap from="gps/fix" to="/an_device/NavSatFix"/>
      
 
