@@ -99,16 +99,15 @@ namespace RobotLocalization
     nh_priv.param("frequency", frequency, 10.0);
     nh_priv.param("delay", delay, 0.0);
     nh_priv.param("transform_timeout", transform_timeout, 0.0);
-
     transform_timeout_.fromSec(transform_timeout);
 
     // Subscribe to the messages and services we need
     ros::ServiceServer datum_srv = nh.advertiseService("datum", &NavSatTransform::datumCallback, this);
 
-    // Not required as accessed automatically by setting datum as the first reading
     if (use_manual_datum_ && nh_priv.hasParam("datum"))
     {
       XmlRpc::XmlRpcValue datum_config;
+
       try
       {
         double datum_lat;
@@ -163,8 +162,6 @@ namespace RobotLocalization
     }
 
     ros::Subscriber odom_sub = nh.subscribe("odometry/filtered", 1, &NavSatTransform::odomCallback, this);
-    
-    // GPS is always updated owing to the fact that gps_updated_ = 1
     ros::Subscriber gps_sub = nh.subscribe("gps/fix", 1, &NavSatTransform::gpsFixCallback, this);
     ros::Subscriber imu_sub;
 
@@ -190,7 +187,7 @@ namespace RobotLocalization
     while (ros::ok())
     {
       ros::spinOnce();
-      // transform_good_ has to be false
+
       if (!transform_good_)
       {
         computeTransform();
@@ -204,14 +201,11 @@ namespace RobotLocalization
       else
       {
         nav_msgs::Odometry gps_odom;
-        
-        // has to publish this odom
         if (prepareGpsOdometry(gps_odom))
         {
           gps_odom_pub.publish(gps_odom);
         }
 
-        // wont come here for now
         if (publish_gps_)
         {
           sensor_msgs::NavSatFix odom_gps;
@@ -231,13 +225,11 @@ namespace RobotLocalization
     // Only do this if:
     // 1. We haven't computed the odom_frame->utm_frame transform before
     // 2. We've received the data we need
-    
     if (!transform_good_ &&
         has_transform_odom_ &&
         has_transform_gps_ &&
         has_transform_imu_)
     {
-
       // The UTM pose we have is given at the location of the GPS sensor on the robot. We need to get the UTM pose of
       // the robot's origin.
       tf2::Transform transform_utm_pose_corrected;
@@ -473,7 +465,7 @@ namespace RobotLocalization
                      !std::isnan(msg->altitude) &&
                      !std::isnan(msg->latitude) &&
                      !std::isnan(msg->longitude));
-    
+
     if (good_gps)
     {
       // If we haven't computed the transform yet, then

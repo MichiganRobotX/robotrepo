@@ -13,7 +13,7 @@
 using namespace gps_common;
 
 static ros::Publisher odom_pub;
-std::string frame_id, child_frame_id;
+std::string frame_id = "gps", child_frame_id = "odom";
 double rot_cov;
 
 void callback(const sensor_msgs::NavSatFixConstPtr& fix) {
