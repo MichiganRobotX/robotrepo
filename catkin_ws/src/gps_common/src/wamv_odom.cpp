@@ -31,6 +31,12 @@ double quat[4];
 bool flag = true;
 float ox, oy, prev_x, prev_y;
 
+void quat2eul(double x, double y, double z, double w, double *YPR) {
+  YPR[0] = atan2(2.0*(y*z + w*x), w*w - x*x - y*y + z*z);
+  YPR[1] = asin(-2.0*(x*z - w*y));
+  YPR[2] = atan2(2.0*(x*y + w*z), w*w + x*x - y*y - z*z);
+}
+
 void eul2quat(double yaw, double pitch, double roll) {
   // Assuming the angles are in radians.
   double c1 = cos(yaw);
@@ -90,6 +96,8 @@ void gpscallback(const sensor_msgs::NavSatFixConstPtr& fix) {
       flag = false;
     }
     else {  // publish now
+      double YPR[3];
+      quat2eul(qx,qy,qz,qw,YPR);
 
       // publish to odom topic
       odom.pose.pose.position.x = easting - ox;
@@ -104,11 +112,22 @@ void gpscallback(const sensor_msgs::NavSatFixConstPtr& fix) {
 
       prev_x = easting - ox;
       prev_y = northing - oy;
-
+      
+      /*
+      // use the GPS Data
+      ROS_WARN("Using GPS Data");
       odom.pose.pose.orientation.x = quat[0];
       odom.pose.pose.orientation.y = quat[1];
       odom.pose.pose.orientation.z = quat[2];
-      odom.pose.pose.orientation.w = quat[3];	
+      odom.pose.pose.orientation.w = quat[3];
+      */
+      
+      // use INS Data
+      ROS_WARN("Using INS Data");
+      odom.pose.pose.orientation.x = qx;
+      odom.pose.pose.orientation.y = qy;
+      odom.pose.pose.orientation.z = qz;
+      odom.pose.pose.orientation.w = qw;      
       
       // Use ENU covariance to build XYZRPY covariance
       boost::array<double, 36> covariance = {{

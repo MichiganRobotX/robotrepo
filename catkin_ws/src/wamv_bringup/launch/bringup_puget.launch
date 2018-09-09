@@ -7,7 +7,7 @@
 	<arg name="rviz" default="false" />
 	<arg name="drivers" default="false" />
 	<arg name="motors" default="false" />
-	<arg name="gazebo" default="false" />
+	<arg name="gazebo" default="true" />
 	
 	<!-- DRIVER NODES -->
 	<group if="$(arg drivers)">
@@ -37,7 +37,7 @@
 
 	<!-- DEPENDENCY NODES -->
 	<!-- launch package to convert NavSat to odometry -->
-	<node pkg="gps_common" type="wamv_odometry" name="wamv_odometry" clear_params="true" >
+	<node pkg="gps_common" type="wamv_odometry" name="wamv_odometry" clear_params="true" output="screen">
 		<remap from="/navsat" to="/an_device/NavSatFix"/>
 		<remap from="/imu" to="/an_device/Imu"/>
 		<remap from="/gps" to="/gps/odom"/>
