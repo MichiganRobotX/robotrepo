@@ -10,7 +10,7 @@ rosrun joy joy_node
 Joystick Mapping (Mode Light Off)
 
 Axes:
-0: Left Stick, Left-Right
+0: Left Stick, Left-Right 
 1: Left Stick, Up-Down
 2: Left Trigger
 3: Right Stick, Left-Right
