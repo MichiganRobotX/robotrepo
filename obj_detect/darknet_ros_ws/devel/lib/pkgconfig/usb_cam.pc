@@ -1,0 +1,8 @@
+prefix=/home/msy/yolo/darknet_ros_ws/devel
+
+Name: usb_cam
+Description: Description of usb_cam
+Version: 0.3.6
+Cflags: -I/home/msy/yolo/darknet_ros_ws/src/usb_cam/include
+Libs: -L/home/msy/yolo/darknet_ros_ws/devel/lib -lusb_cam
+Requires: 
