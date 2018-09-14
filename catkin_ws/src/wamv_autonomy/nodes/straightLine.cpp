@@ -77,15 +77,19 @@ void publisher() {
 }
 
 void joy_callback(const sensor_msgs::Joy &msg) {
+	std_msgs::Bool wamv_status;
+	wamv_status.data = false;
 	// open activate if button 1 pressed
 	if(msg.buttons[0]==1)
 		activate = true;
-		autonomy_status_pub.publish(activate);
+		wamv_status.data = true; 
+		autonomy_status_pub.publish(wamv_status);
 
 	// close activate if button 2 pressed
 	if(msg.buttons[1]==1)
 		activate = false;
-		autonomy_status_pub.publish(activate);
+		wamv_status.data = false;
+		autonomy_status_pub.publish(wamv_status);
 }
 
 void gps_callback(const nav_msgs::Odometry &msg) {
