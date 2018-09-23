@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<robot name="kingfisher" 
+    xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor" 
+    xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller" 
+    xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface" 
+    xmlns:xacro="http://ros.org/wiki/xacro">
+    <!-- Included URDF Files -->
+    <xacro:include filename="$(find kingfisher_description)/urdf/base.urdf.xacro" />
+
+    <xacro:if value="$(arg sonar_enabled)">
+        <!-- Set up sonar linkage and configuration -->
+        <joint name="base_link_sonar_link_joint" type="fixed">
+            <origin xyz="0 0 -0.2" rpy="0 1.57 0" />
+            <parent link="base_link"/>
+            <child link="sonar_link" />
+        </joint>
+        <link name="sonar_link">
+            <inertial>
+                <mass value="1"/>
+                <origin xyz="0 0 0"/>
+                <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
+            </inertial>
+        </link>
+    </xacro:if>
+</robot>

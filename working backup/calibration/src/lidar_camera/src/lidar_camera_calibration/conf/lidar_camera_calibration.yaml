@@ -1,0 +1,4 @@
+﻿lidar_camera_calibration:
+  camera_frame_topic: /image_view_1537388656587776168/output
+  camera_info_topic: /ladybug_camera/camera3/camera_info
+  velodyne_topic: /vel1/velodyne_points

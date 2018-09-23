@@ -1,9 +1,0 @@
-# resolve dependencies
-echo "Installing dependencies libdc1394 "
-sudo apt-get install libdc1394-*
-
-# build 
-catkin_make
-
-# source bash file
-source devel/setup.bash
