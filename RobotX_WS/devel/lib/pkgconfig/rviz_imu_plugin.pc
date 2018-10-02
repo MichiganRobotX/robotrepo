@@ -1,0 +1,8 @@
+prefix=/home/dasc/Downloads/RobotX/robotrepo/RobotX_WS/devel
+
+Name: rviz_imu_plugin
+Description: Description of rviz_imu_plugin
+Version: 1.0.15
+Cflags: 
+Libs: -L/home/dasc/Downloads/RobotX/robotrepo/RobotX_WS/devel/lib 
+Requires: rviz

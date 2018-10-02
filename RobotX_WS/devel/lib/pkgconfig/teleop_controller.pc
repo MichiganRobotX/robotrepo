@@ -1,0 +1,8 @@
+prefix=/home/dasc/Downloads/RobotX/robotrepo/RobotX_WS/devel
+
+Name: teleop_controller
+Description: Description of teleop_controller
+Version: 1.0.0
+Cflags: 
+Libs: -L/home/dasc/Downloads/RobotX/robotrepo/RobotX_WS/devel/lib 
+Requires: message_runtime

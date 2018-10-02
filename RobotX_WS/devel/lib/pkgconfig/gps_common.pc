@@ -1,0 +1,8 @@
+prefix=/home/dasc/Downloads/RobotX/robotrepo/RobotX_WS/devel
+
+Name: gps_common
+Description: Description of gps_common
+Version: 0.1.7
+Cflags: -I/home/dasc/Downloads/RobotX/robotrepo/RobotX_WS/devel/include -I/home/dasc/Downloads/RobotX/robotrepo/RobotX_WS/src/gps_common/include
+Libs: -L/home/dasc/Downloads/RobotX/robotrepo/RobotX_WS/devel/lib 
+Requires: message_runtime
