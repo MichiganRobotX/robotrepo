@@ -1,0 +1,10 @@
+# resolve dependencies
+echo "Installing dependencies libdc1394 "
+sudo apt-get install libdc1394-*
+sudo apt-get install ros-kinetic-velodyne-*
+
+# build 
+catkin_make
+
+# check build
+catkin_make
