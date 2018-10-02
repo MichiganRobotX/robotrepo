@@ -16,12 +16,14 @@
 		</node>
 	</group>
 
-	<!-- DEPENDENCY NODES -->
 	<!-- launch package to convert NavSat to odometry -->
 	<node pkg="gps_common" type="wamv_odometry" name="wamv_odometry" clear_params="true" output="screen">
 		<remap from="/navsat" to="/an_device/NavSatFix"/>
 		<remap from="/imu" to="/an_device/Imu"/>
-		<remap from="/gps" to="/gps/odom"/>
+		<remap from="/gps" to="/gpsdirect"/>
 	</node>
+
+	<!-- launch the heartbeat -->
+	<node pkg="heartbeat" type="signal" name="heartbeat_daemon" respawn="true" output="screen" />
 
 </launch>
