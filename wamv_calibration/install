@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "Building Calibration Packages"
+catkin_make
+source devel/setup.bash
