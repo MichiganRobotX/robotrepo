@@ -16,11 +16,11 @@
 		</node>
 	</group>
 
-	<!-- launch package to convert NavSat to odometry -->
+	<!-- launch package to convert NavSat to self fused odometry -->
 	<node pkg="gps_common" type="wamv_odometry" name="wamv_odometry" clear_params="true" output="screen">
 		<remap from="/navsat" to="/an_device/NavSatFix"/>
 		<remap from="/imu" to="/an_device/Imu"/>
-		<remap from="/gps" to="/gpsdirect"/>
+		<remap from="/gps" to="/gps/odom"/>
 	</node>
 
 	<!-- launch the heartbeat -->
