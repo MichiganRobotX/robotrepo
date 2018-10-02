@@ -1,17 +1,11 @@
 #!/bin/bash
-echo "Building Base Packages"
-
-sudo apt-get install libsdl-image1.2-dev
-sudo apt-get install libsdl-dev
+echo "Building localization Packages"
+sudo apt-get install ros-kinetic-robot-localization
+sudo apt-get install ros-kinetic-cost*
+sudo apt-get install ros-kinetic-navigation*
 
 # build heartbeat
-catkin_make --pkg heartbeat
-
-# build localization package
-catkin_make --pkg gps_common
-
-# build task packages 
-catkin_make --pkg wamv_bringup
+catkin_make --pkg wamv_autonomy
 
 # build remaining packages
 catkin_make
