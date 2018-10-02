@@ -1,8 +1,0 @@
-prefix=/home/dasc/Downloads/RobotX/robotrepo/RobotX_WS/devel
-
-Name: gmapping
-Description: Description of gmapping
-Version: 1.3.10
-Cflags: 
-Libs: -L/home/dasc/Downloads/RobotX/robotrepo/RobotX_WS/devel/lib 
-Requires: 

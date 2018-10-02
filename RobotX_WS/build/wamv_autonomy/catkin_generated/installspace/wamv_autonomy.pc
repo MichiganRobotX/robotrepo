@@ -1,8 +1,0 @@
-prefix=/home/dasc/Downloads/RobotX/robotrepo/RobotX_WS/install
-
-Name: wamv_autonomy
-Description: Description of wamv_autonomy
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/dasc/Downloads/RobotX/robotrepo/RobotX_WS/install/lib 
-Requires: 

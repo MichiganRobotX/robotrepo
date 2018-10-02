@@ -1,2 +1,0 @@
-set(heartbeat_MESSAGE_FILES "/home/dasc/Downloads/RobotX/robotrepo/RobotX_WS/src/heartbeat/msg/heartBeat.msg;/home/dasc/Downloads/RobotX/robotrepo/RobotX_WS/src/heartbeat/msg/entranceExit.msg;/home/dasc/Downloads/RobotX/robotrepo/RobotX_WS/src/heartbeat/msg/scanCode.msg;/home/dasc/Downloads/RobotX/robotrepo/RobotX_WS/src/heartbeat/msg/dockTask.msg;/home/dasc/Downloads/RobotX/robotrepo/RobotX_WS/src/heartbeat/msg/detectDeliver.msg;/home/dasc/Downloads/RobotX/robotrepo/RobotX_WS/src/heartbeat/msg/finalMsg.msg")
-set(heartbeat_SERVICE_FILES "")
