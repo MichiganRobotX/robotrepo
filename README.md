@@ -10,8 +10,12 @@ This repository is for all Michigan RobotX Code Development and Builds
 4. For the Puget, run ```./install_Puget``` to install the recommended packages
 
 ### ROS Workspace Installation
+1. On the Puget, copy the wamv_drivers workspace into the Documents folder and run ```./install``` from within the workspace. You might have to add permissions to run the file using ```chmod +x install```. Do the same for the wamv_base, wamv_autonomy, wamv_calibration and wamv_misc workspaces.
 
-Basic Network Setup:
+2. On the Laptop, install wamv_drivers, wamv_base and wamv_autonomy workspaces same as above.
+
+
+### Network Setup:
 1. Make sure both the ops laptop and the WAM-V computer are on the same network.<br/>
 	<strong>Puget IP</strong>: 192.168.1.103<br/>
 	<strong>Laptop IP</strong>: 192.168.1.104<br/>
