@@ -1,0 +1,7 @@
+#!/bin/bash
+catkin_make
+# make sure built
+catkin_make
+
+# source bash file
+source devel/setup.bash
