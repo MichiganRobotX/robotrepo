@@ -1,0 +1,24 @@
+#!/bin/bash
+# build heartbeat
+catkin_make --pkg heartbeat
+
+# build localization package
+catkin_make --pkg gps_common
+
+# build task packages 
+catkin_make --pkg wamv_bringup
+
+# build simulator
+catkin_make --pkg kingfisher_description robotx_gazebo wamv_description
+
+# build task packages 
+catkin_make --pkg wamv_autonomy
+
+# build remaining packages
+catkin_make
+
+# confirm build
+catkin_make
+
+# source bash file
+source devel/setup.bash
