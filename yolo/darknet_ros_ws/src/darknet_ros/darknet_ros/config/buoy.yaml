@@ -1,0 +1,14 @@
+yolo_model:
+
+  config_file:
+    name: buoy.cfg
+  weight_file:
+    name: buoy.weights
+  threshold:
+    value: 0.3
+  detection_classes:
+    names:
+      - orange
+      - green
+      - white
+      - black
