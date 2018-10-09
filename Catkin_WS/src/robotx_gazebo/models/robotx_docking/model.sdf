@@ -1,0 +1,119 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+    <model name="robotx_docking">
+        <pose>0 0 0 0 0 0</pose>
+        <static>true</static>
+        <link name="docking_link">
+            <visual name="robotx_docking_front_v">
+                <pose>0 1 0.25 0 0 0</pose>
+                <geometry>
+                    <box>
+                        <size>3 2 0.5</size>
+                    </box>
+                </geometry>
+                <material>
+                    <script>
+                        <uri>file://media/materials/scripts/gazebo.material</uri>
+                        <name>Gazebo/Grey</name>
+                    </script>
+                </material>
+            </visual>
+            <visual name="robotx_docking_left_v">
+                <pose>-2 -1.5 0.25 0 0 0</pose>
+                <geometry>
+                    <box>
+                        <size>1 7 0.5</size>
+                    </box>
+                </geometry>
+                <material>
+                    <script>
+                        <uri>file://media/materials/scripts/gazebo.material</uri>
+                        <name>Gazebo/Grey</name>
+                    </script>
+                </material>
+            </visual>
+            <visual name="robotx_docking_right_v">
+                <pose>2 -1.5 0.25 0 0 0</pose>
+                <geometry>
+                    <box>
+                        <size>1 7 0.5</size>
+                    </box>
+                </geometry>
+                <material>
+                    <script>
+                        <uri>file://media/materials/scripts/gazebo.material</uri>
+                        <name>Gazebo/Grey</name>
+                    </script>
+                </material>
+            </visual>
+            <visual name="robotx_docking_panel_v">
+                <pose>0 1.995 1.5 0 0 0</pose>
+                <geometry>
+                    <box>
+                        <size>2 0.01 2</size>
+                    </box>
+                </geometry>
+                <material>
+                    <script>
+                        <uri>file://media/materials/scripts/gazebo.material</uri>
+                        <name>Gazebo/White</name>
+                    </script>
+                </material>
+            </visual>
+            <visual name="robotx_docking_panelCrossHoriz_v">
+                <pose>0 1.99 1.5 0 0 0</pose>
+                <geometry>
+                    <box>
+                        <size>1 0.01 0.2</size>
+                    </box>
+                </geometry>
+                <material>
+                    <script>
+                        <uri>file://media/materials/scripts/gazebo.material</uri>
+                        <name>Gazebo/Green</name>
+                    </script>
+                </material>
+            </visual>
+            <visual name="robotx_docking_panelCrossVert_v">
+                <pose>0 1.99 1.5 0 0 0</pose>
+                <geometry>
+                    <box>
+                        <size>0.2 0.01 1</size>
+                    </box>
+                </geometry>
+                <material>
+                    <script>
+                        <uri>file://media/materials/scripts/gazebo.material</uri>
+                        <name>Gazebo/Green</name>
+                    </script>
+                </material>
+            </visual>
+
+            <!-- Collisons -->
+            <collision name="robotx_docking_front_v">
+                <pose>0 1 0.25 0 0 0</pose>
+                <geometry>
+                    <box>
+                        <size>3 2 0.5</size>
+                    </box>
+                </geometry>
+            </collision>
+            <collision name="robotx_docking_left_v">
+                <pose>-2 -1.5 0.25 0 0 0</pose>
+                <geometry>
+                    <box>
+                        <size>1 7 0.5</size>
+                    </box>
+                </geometry>
+            </collision>
+            <collision name="robotx_docking_right_v">
+                <pose>2 -1.5 0.25 0 0 0</pose>
+                <geometry>
+                    <box>
+                        <size>1 7 0.5</size>
+                    </box>
+                </geometry>
+            </collision>
+        </link>
+    </model>
+</sdf>
