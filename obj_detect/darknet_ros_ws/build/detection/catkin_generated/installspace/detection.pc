@@ -1,8 +1,0 @@
-prefix=/home/msy/yolo/darknet_ros_ws/install
-
-Name: detection
-Description: Description of detection
-Version: 0.0.0
-Cflags: -I/home/msy/yolo/darknet_ros_ws/install/include
-Libs: -L/home/msy/yolo/darknet_ros_ws/install/lib 
-Requires: message_runtime
