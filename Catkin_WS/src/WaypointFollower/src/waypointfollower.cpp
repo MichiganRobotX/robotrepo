@@ -1,23 +1,4 @@
-#include <ros/ros.h>
-#include <math.h>
-#include <algorithm> 
-#include <iostream>
-#include <string>
-#include <message_filters/subscriber.h>
-#include <message_filters/synchronizer.h>
-#include <message_filters/sync_policies/approximate_time.h>
-
 #include "waypointfollower.h"
-#include <std_msgs/Bool.h>
-
-#include "sensor_msgs/Imu.h"
-#include "sensor_msgs/NavSatFix.h"
-#include "geometry_msgs/Twist.h"
-#include <nav_msgs/Odometry.h>
-
-
-
-using namespace std;
 
 //*********************************************************************************************************
 //********************************************Read GPS/IMU Data && Control Mode****************************
@@ -27,9 +8,9 @@ void Odometry_callback(const nav_msgs::Odometry& msg)
 {
   Odom_hascome = true;
 
-  current_heading = msg.twist.twist.angular.z; // current yaw angle of the boat
-  current_position[1] = msg.pose.pose.position.x;
-  current_position[2] = msg.pose.pose.position.y;
+  curr_theta = msg.twist.twist.angular.z; // current yaw angle of the boat
+  curr_x = msg.pose.pose.position.x;
+  curr_y = msg.pose.pose.position.y;
 
 }
 
@@ -55,93 +36,54 @@ void autonomy_callback(const std_msgs::Bool &msg){
 }
 
 //*********************************************************************************************************
-//********************************************PID Controller***********************************************
-//*********************************************************************************************************
-void PID_Init() {
-
-  turning_pid.Set(0.1, 0.1, 0.1); // Tune PID here
-  turning_pid.SetI(0.6, 0.6);
-  turning_pid.SetD(0.8, 0.8);
-  turning_pid.SetOut(1, 1);
-  
-  lateral_pid.Set(0.1, 0.1, 0.1); // Tune PID here
-  lateral_pid.SetI(0.6, 0.6);
-  lateral_pid.SetD(0.8, 0.8);
-  lateral_pid.SetOut(1, 1);
-  
-
-
-}
-
-
-// controller update HERE
-void controller_update(){
-
-  if( !target_set && activate ){ //initialize target_position
-    target_position[0] = STRAIGHT_DISTANCE*cos(current_heading);
-    target_position[1] = STRAIGHT_DISTANCE*sin(current_heading);
-    target_set = true;
-  }
-
-
-
-  // Turning update
-  float target_heading = atan2( target_position[1]-current_position[1] , target_position[0]-current_position[0] );
-
-  float turning_error = target_heading - current_heading;
-
-  float turning_pidOutput = turning_pid.Compute(turning_error);
-
-  float distance_error =  Distance(target_position, current_position);
-
-  // Position update
-  float lateral_error = distance_error*sin(target_heading - current_heading);
-
-  float lateral_pidOutput = lateral_pid.Compute(lateral_error);
-
-  lateral_motor_input_left.data = - lateral_pidOutput; // move toward right
-  lateral_motor_input_right.data = lateral_pidOutput; // move toward left
-
-  // Now we only use Turning update for control until two lateral thrusters are assembled
-
-  float forwardSpeed = MOVE_SPEED;
-
-  if(turning_error > MOVE_FORWORED_ANGLE_TOLORENCE){ // first turning heading to get a small turning error then move
-      forwardSpeed = 0;
-  }
-
-  motor_input_left.data = (int)( (forwardSpeed + turning_pidOutput)*SPEED_RANGE );
-  motor_input_right.data = (int)( (forwardSpeed - turning_pidOutput)*SPEED_RANGE );
-
-  if(distance_error < ARRIVING_DISTANCE){
-    motor_input_left.data = 0;
-    motor_input_right.data = 0;
-  }
-
-  left_pub.publish(motor_input_left);
-  right_pub.publish(motor_input_right);
-}
-
-//*********************************************************************************************************
 //******************************************** Main *******************************************************
 //*********************************************************************************************************
 
 void process(){
 
   if(activate){
-    controller_update();
+      static int waypoint_idx = 0;
+      if (arrived){ // if previous target position has been achieved, go to next one
+        goal_x = square_waypoints[waypoint_idx][0] + curr_x;
+        goal_y = square_waypoints[waypoint_idx][1] + curr_y;
+        arrived = false;
+      }
+      else{ // keep controlling the boat to move to current target position
+        
+        RTR();
+
+        if (Distance(curr_x, curr_y, goal_x, goal_y) < distTolerance) { // less than 1 meter, arrived
+          arrived = true;
+          waypoint_idx++;
+          if (waypoint_idx >= square_waypoints.size()){ // achieved the end of the path
+            activate = false;
+            waypoint_idx = 0;
+          }
+        }
+      }
   }
   else{
+    arrived = true;
     target_set = false;
     ROS_INFO("PID_denied");
   }
 
 }
 
-
-
 int main (int argc, char** argv)
 {
+  // hard code waypoints here
+
+  // one target position
+  // square_waypoints[0] = {20,0};
+
+  // square path
+  square_waypoints[0] = {5,0};
+  square_waypoints[1] = {5,5};
+  square_waypoints[2] = {0,5};
+  square_waypoints[3] = {0,0};
+
+
   // Initialize ROS
   ros::init (argc, argv, "velodyne_sub");
   ros::NodeHandle nh;
@@ -150,14 +92,13 @@ int main (int argc, char** argv)
   joy_sub = nh.subscribe("/joy", 10000, &joy_callback);
   autonomy_status_sub = nh.subscribe("/AutonomyStatus", 10000, &autonomy_callback);
 
-
   left_pub = nh.advertise<std_msgs::Int16>("/LmotorSpeed", 10000);
   right_pub = nh.advertise<std_msgs::Int16>("/RmotorSpeed", 10000);
   lateral_left_pub = nh.advertise<std_msgs::Int16>("/LmotorSpeed_lateral", 10000);
   lateral_right_pub = nh.advertise<std_msgs::Int16>("/RmotorSpeed_lateral", 10000);
   autonomy_status_pub = nh.advertise<std_msgs::Bool>("/AutonomyStatus", 1000);
 
-  PID_Init();
+  controller_init();
 
   ros::spinOnce();
 
@@ -168,4 +109,17 @@ int main (int argc, char** argv)
     loop_rate.sleep();
   }
 
+}
+
+// Help functions
+double Distance(float x1, float y1, float x2, float y2) {
+    return sqrt((x2-x1)*(x2-x1)+ (y2-y1)*(y2-y1));
+}
+
+double deg2Rad(float deg) {
+    return deg*PI/180;
+}
+
+double rad2Deg(float rad) {
+    return rad*180/PI;
 }
