@@ -5,7 +5,7 @@
 	<arg name="port" default="/dev/ttyACM0" />
 	<arg name="drivers" default="true" />
 	<arg name="motors" default="true" />
-	
+
 	<!-- DRIVER NODES -->
 	<group if="$(arg drivers)">
 		<include file="$(find ladybug3_ros_pkg)/launch/ladybug_format7_mode7.launch"> </include>

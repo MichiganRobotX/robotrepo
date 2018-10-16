@@ -10,7 +10,6 @@
 #include <sensor_msgs/Imu.h>
 #include <gps_common/conversions.h>
 #include <nav_msgs/Odometry.h>
-#include <gazebo_msgs/ModelState.h>
 #include <cmath>
 
 #define PI 3.14159265
@@ -91,7 +90,7 @@ void gpscallback(const sensor_msgs::NavSatFixConstPtr& fix) {
     if(flag) {  // set the origin coordinates here
       ox = easting;
       oy = northing;
-      prev_x = 0; 
+      prev_x = 0;
       prev_y = 0;
       flag = false;
     }
@@ -103,7 +102,7 @@ void gpscallback(const sensor_msgs::NavSatFixConstPtr& fix) {
       odom.pose.pose.position.x = easting - ox;
       odom.pose.pose.position.y = northing - oy;
       odom.pose.pose.position.z = 0;
-      
+
       // calculate yaw
       float dx = (easting - ox - prev_x);
       float dy = (northing -oy - prev_y);
@@ -112,7 +111,7 @@ void gpscallback(const sensor_msgs::NavSatFixConstPtr& fix) {
 
       prev_x = easting - ox;
       prev_y = northing - oy;
-      
+
       /*
       // use the GPS Data
       ROS_WARN("Using GPS Data");
@@ -121,14 +120,14 @@ void gpscallback(const sensor_msgs::NavSatFixConstPtr& fix) {
       odom.pose.pose.orientation.z = quat[2];
       odom.pose.pose.orientation.w = quat[3];
       */
-      
+
       // use INS Data
       ROS_WARN("Using INS Data");
       odom.pose.pose.orientation.x = qx;
       odom.pose.pose.orientation.y = qy;
       odom.pose.pose.orientation.z = qz;
-      odom.pose.pose.orientation.w = qw;      
-      
+      odom.pose.pose.orientation.w = qw;
+
       // Use ENU covariance to build XYZRPY covariance
       boost::array<double, 36> covariance = {{
         fix->position_covariance[0],
@@ -151,20 +150,6 @@ void gpscallback(const sensor_msgs::NavSatFixConstPtr& fix) {
       odom.pose.covariance = covariance;
       odom_pub.publish(odom);
 
-      if (sim_) {
-        // publish to gazebo topic
-        gazebo_msgs::ModelState modelstate;
-        modelstate.model_name = "kingfisher";
-        modelstate.pose.position.x = easting - ox;
-        modelstate.pose.position.y = northing - oy;
-        modelstate.pose.position.z = 0;
-
-        modelstate.pose.orientation.x = 0;
-        modelstate.pose.orientation.y = 0;
-        modelstate.pose.orientation.z = qz;
-        modelstate.pose.orientation.w = qw;
-        gazebo_pub.publish(modelstate);
-      }
     }
   }
 }
@@ -181,13 +166,9 @@ int main (int argc, char **argv) {
 
 
   odom_pub = node.advertise<nav_msgs::Odometry>("/gps", 1000000);
-  
-  if(sim_)
-    gazebo_pub = node.advertise<gazebo_msgs::ModelState>("/gazebo/set_model_state", 10000);
 
   ros::Subscriber fix_sub = node.subscribe("/navsat", 1000000, gpscallback);
   ros::Subscriber imu_sub = node.subscribe("/imu", 1000000, &imucallback);
 
   ros::spin();
 }
-

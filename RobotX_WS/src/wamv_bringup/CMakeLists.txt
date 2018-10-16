@@ -2,12 +2,11 @@ cmake_minimum_required(VERSION 2.8.3)
 project(wamv_bringup)
 
 find_package(catkin REQUIRED COMPONENTS
-	roscpp 
+	roscpp
 	rospy
 	tf2
 	tf
-	geometry_msgs 
-	gazebo_msgs
+	geometry_msgs
 	sensor_msgs
 	std_msgs
 	nav_msgs

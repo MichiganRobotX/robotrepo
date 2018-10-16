@@ -4,6 +4,5 @@
 		<remap from="/navsat" to="/an_device/NavSatFix"/>
 		<remap from="/imu" to="/an_device/Imu"/>
 		<remap from="/gps" to="/gps/odom"/>
-		<param name="sim" value="true" />
 	</node>
 </launch>

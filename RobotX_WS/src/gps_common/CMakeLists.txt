@@ -12,7 +12,6 @@ find_package(catkin REQUIRED
   std_msgs
   nav_msgs
   sensor_msgs
-  gazebo_msgs
   geometry_msgs
   std_msgs
 )
@@ -63,6 +62,6 @@ install(TARGETS ${PROJECT_NAME}/utm_odometry_node
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
-install(DIRECTORY include/${PROJECT_NAME}/ 
+install(DIRECTORY include/${PROJECT_NAME}/
   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
 )
