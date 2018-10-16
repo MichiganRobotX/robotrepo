@@ -1,4 +1,3 @@
-
 #include <ros/ros.h>
 #include <std_msgs/Int16.h>
 #include <std_msgs/Bool.h>
@@ -8,8 +7,8 @@
 #include <geometry_msgs/PoseWithCovariance.h>
 #include <math.h>
 #include <algorithm>
-#include <iostream>
-#include <string>
+// #include <iostream>
+// #include <string>
 #include <message_filters/subscriber.h>
 #include <message_filters/synchronizer.h>
 #include <message_filters/sync_policies/approximate_time.h>
@@ -17,6 +16,29 @@
 #include <waypoint_follower_ros/PID.h>
 #include <waypoint_follower_ros/TuningParameters.h>
 
+using namespace ros;
+using namespace std;
+
+double distance(float x1, float y1, float x2, float y2);
+double deg2Rad(float deg);
+double rad2Deg(float rad);
+
+// Help functions
+double Distance(float x1, float y1, float x2, float y2) {
+    return sqrt((x2-x1)*(x2-x1)+ (y2-y1)*(y2-y1));
+}
+
+double deg2Rad(float deg) {
+    return deg*PI/180;
+}
+
+double rad2Deg(float rad) {
+    return rad*180/PI;
+}
+
+###############
+### PARAMS ####
+###############
 #define PI 3.1415926
 #define MOVE_FORWORED_ANGLE_TOLORENCE PI/6 //rad
 #define ARRIVING_DISTANCE 1 // meters
@@ -25,21 +47,35 @@
 #define angTolerance 10 // in degrees
 #define distTolerance 1 // in meters
 
-using namespace ros;
-using namespace std;
-
-
-void controller_init();
-void controller_update( bool transation_activated );
-void RTR();
-
-double Distance(float x1, float y1, float x2, float y2);
-double deg2Rad(float deg);
-double rad2Deg(float rad);
-
 float goal_x, goal_y, goal_theta, curr_x, curr_y, curr_theta, curr_velX, curr_velY, curr_velTheta;
 
-class PID {
+void Set(float kp, float kd, float ki) { kp = kp; ki = ki; kd = kd; }
+
+void SetI(float max, float min) { iMax = max; iMin = min; }
+
+void SetD(float max, float min) { dMax = max; dMin = min; }
+
+void SetOut(float max, float min) { outputMax = max; outputMin = min; }
+
+//Path
+vector< vector<int> > square_waypoints(1, vector<int>());
+
+
+bool activate = true;
+bool flag = true;
+bool Odom_hascome = false;
+bool target_set = false;
+bool arrived = true;
+
+
+
+###################
+#### PID Class ####
+###################
+class PIDController {
+    // Publisher angular_pid_pub;
+    // Publisher linear_pos_pid_pub;
+    // Publisher linear_vel_pid_pub;
 
 public:
     float prev_error;
@@ -56,126 +92,29 @@ public:
     float pterm;
     float dterm;
     float iterm;
+    Publisher* pub;
 
+    Publisher left_pub;
+    Publisher right_pub;
+    Publisher lateral_left_pub;
+    Publisher lateral_right_pub;
+    Publisher autonomy_status_pub;
+    Publisher tuning_param_pub;
 
-PID::PID(float P, float I, float D, float dT) {
-    iterm = 0.0;
-    dterm = 0.0;
-    pterm = 0.0;
-    iMax = 0.0;
-    iMin = 0.0;
-    dMax = 0.0;
-    dMin = 0.0;
-    outputMin = 0.0;
-    outputMax = 0.0;
-    kp = P;
-    kd = D;
-    ki = I;
-    updateHz = dT;
-  }
-  void Set(float kp, float kd, float ki) { kp = kp; ki = ki; kd = kd; }
+    Subscriber odom_sub;
+    Subscriber joy_sub;
+    Subscriber autonomy_status_sub;
 
-  void SetI(float max, float min) { iMax = max; iMin = min; }
+PIDController::PIDController(float P, float I, float D, float dT);
 
-  void SetD(float max, float min) { dMax = max; dMin = min; }
+void PIDController::reset();
 
-  void SetOut(float max, float min) { outputMax = max; outputMin = min; }
+float PIDController::compute(float& error, waypoint_follower_ros::PID& pid_msg);
 
-  void Reset() { pterm = 0; iterm = 0; dterm = 0; }
+void PIDController::controller_init();
 
-  float Compute(float& error, waypoint_follower_ros::PID& pid_msg) {
-    pterm = kp*error;
-    pid_msg.p = pterm;
+void PIDController::controller_update( bool transation_activated );
 
-    iterm = iterm + ki*error/updateHz;
-    if(iterm>iMax)
-      iterm = iMax;
-    if(iterm<iMin)
-      iterm = iMin;
-    pid_msg.i = iterm;
-
-    dterm = kd*(error - prev_error);
-    if(dterm>dMax)
-      dterm = dMax;
-    if(dterm<dMin)
-      dterm = dMin;
-    pid_msg.d = dterm;
-
-    float out = pterm + dterm + iterm;
-
-    if(out<outputMin) {
-      out = outputMin;
-      Reset();
-    }
-    if(out>outputMax) {
-      out = outputMax;
-      Reset();
-    }
-
-    prev_error = error;
-
-    return out;
-  }
-};
-
-PID angular_pos_pid(0.1, 0.1, 0.1, 20); // 20hz
-PID linear_pos_pid(0.1, 0.1, 0.1, 20); // 20hz
-PID linear_vel_pid(0.1, 0.1, 0.1, 20); // 20hz
-
-std_msgs::Int16 motor_input_left;
-std_msgs::Int16 lateral_motor_input_left;
-std_msgs::Int16 lateral_motor_input_right;
-std_msgs::Int16 motor_input_right;
-
-waypoint_follower_ros::PID angular_pid_msg;
-waypoint_follower_ros::PID linear_pos_pid_msg;
-waypoint_follower_ros::PID linear_vel_pid_msg;
-waypoint_follower_ros::TuningParameters tuning_param_msg;
-
-//Path
-vector< vector<int> > square_waypoints(1, vector<int>());
-
-// Global Variables
-bool activate = true;
-bool flag = true;
-
-// Publishers and Subscribers
-Publisher left_pub;
-Publisher right_pub;
-Publisher lateral_left_pub;
-Publisher lateral_right_pub;
-Publisher autonomy_status_pub;
-Publisher angular_pid_pub;
-Publisher linear_pos_pid_pub;
-Publisher linear_vel_pid_pub;
-Publisher tuning_param_pub;
-
-Subscriber odom_sub;
-Subscriber joy_sub;
-Subscriber autonomy_status_sub;
-
-// Flag
-bool Odom_hascome = false;
-bool target_set = false;
-bool arrived = true;
-
-// Help functions
-double Distance(float x1, float y1, float x2, float y2) {
-    return sqrt((x2-x1)*(x2-x1)+ (y2-y1)*(y2-y1));
-}
-
-double deg2Rad(float deg) {
-    return deg*PI/180;
-}
-
-double rad2Deg(float rad) {
-    return rad*180/PI;
-}
-
-
-//*********************************************************************************************************
-//********************************************PID Controller***********************************************
-//*********************************************************************************************************
 void controller_init() {
   angular_pos_pid.Set(0.1, 0.1, 0.1); // Tune PID here
   angular_pos_pid.SetI(0.6, -0.6);
@@ -228,6 +167,7 @@ void controller_update( bool transation_activated )
   if(right_control>SPEED_RANGE)
     right_control = SPEED_RANGE;
 
+
   motor_input_left.data = left_control; // move toward left
   motor_input_right.data = right_control; // move toward right
 
@@ -238,6 +178,105 @@ void controller_update( bool transation_activated )
   angular_pid_pub.publish(angular_pid_msg);
   tuning_param_pub.publish(tuning_param_msg);
 }
+
+
+void RTR();
+
+};
+
+/*  Member variables
+*/
+PIDController::PIDController(float P, float I, float D, float dT)
+{
+    iterm = 0.0;
+    dterm = 0.0;
+    pterm = 0.0;
+    iMax = 0.0;
+    iMin = 0.0;
+    dMax = 0.0;
+    dMin = 0.0;
+    outputMin = 0.0;
+    outputMax = 0.0;
+    kp = P;
+    kd = D;
+    ki = I;
+    updateHz = dT;
+}
+
+/*  Resets the P, I, and D terms within the controller.
+*/
+void PIDController::reset()
+{
+    pterm = 0;
+    iterm = 0;
+    dterm = 0;
+}
+
+/*  Given an error (?) ...
+*/
+float PIDController::compute(float& error, waypoint_follower_ros::PID& pid_msg)
+{
+    pterm = kp*error;
+    pid_msg.p = pterm;
+
+    iterm = iterm + ki*error/updateHz;
+    if(iterm>iMax)
+      iterm = iMax;
+    if(iterm<iMin)
+      iterm = iMin;
+    pid_msg.i = iterm;
+
+    dterm = kd*(error - prev_error);
+    if(dterm>dMax)
+      dterm = dMax;
+    if(dterm<dMin)
+      dterm = dMin;
+    pid_msg.d = dterm;
+
+    float out = pterm + dterm + iterm;
+
+    if(out<outputMin) {
+      out = outputMin;
+      Reset();
+    }
+    if(out>outputMax) {
+      out = outputMax;
+      Reset();
+    }
+
+    prev_error = error;
+
+    return out;
+}
+
+
+void RTR() {
+
+  goal_theta = atan2((goal_y-curr_y),(goal_x-curr_x));
+
+  if (abs(curr_theta - goal_theta) > deg2Rad(angTolerance)){ // if angle error is too big
+    controller_update(false); // translation is false, only control angle
+  }
+  else {
+    controller_update(true); // translation is false, only control angle
+  }
+}
+
+
+PID angular_pos_pid(0.1, 0.1, 0.1, 20); // 20hz
+PID linear_pos_pid(0.1, 0.1, 0.1, 20); // 20hz
+PID linear_vel_pid(0.1, 0.1, 0.1, 20); // 20hz
+
+std_msgs::Int16 motor_input_left;
+std_msgs::Int16 lateral_motor_input_left;
+std_msgs::Int16 lateral_motor_input_right;
+std_msgs::Int16 motor_input_right;
+
+waypoint_follower_ros::PID angular_pid_msg;
+waypoint_follower_ros::PID linear_pos_pid_msg;
+waypoint_follower_ros::PID linear_vel_pid_msg;
+waypoint_follower_ros::TuningParameters tuning_param_msg;
+
 
 
 //*********************************************************************************************************
@@ -315,42 +354,35 @@ void process(){
 
 }
 
+auto get_waypoints();
+auto get_waypoints() {
+    std::vector< std::std::vector<float> > waypoints;
+
+    square_waypoints[0] = {20,0};
+    return
+}
+
+
 int main (int argc, char** argv)
 {
-    // std_msgs::Int16 motor_input_left;
-    // std_msgs::Int16 lateral_motor_input_left;
-    // std_msgs::Int16 lateral_motor_input_right;
-    // std_msgs::Int16 motor_input_right;
-    //
-    // waypoint_follower_ros::PID angular_pid_msg;
-    // waypoint_follower_ros::PID linear_pos_pid_msg;
-    // waypoint_follower_ros::PID linear_vel_pid_msg;
-    // waypoint_follower_ros::TuningParameters tuning_param_msg;
+    // Initialize params here
 
-  // hard code waypoints here
+  waypoints = get_waypoints();
 
-  // one target position
-  square_waypoints[0] = {20,0};
-
-  // square path
-  // square_waypoints.push_back(std::vector<int>{5,0});
-  // square_waypoints.push_back(std::vector<int>{5,5});
-  // square_waypoints.push_back(std::vector<int>{0,5});
-  // square_waypoints.push_back(std::vector<int>{0,0});
-
-  // Initialize ROS
+    // Initialize ROS
   ros::init (argc, argv, "velodyne_sub");
   ros::NodeHandle nh;
 
-  odom_sub = nh.subscribe("/gps/odom", 100000, &Odometry_callback);
-  joy_sub = nh.subscribe("/joy", 10000, &joy_callback);
-  autonomy_status_sub = nh.subscribe("/AutonomyStatus", 10000, &autonomy_callback);
+  Subscriber odom_sub = nh.subscribe("/gps/odom", 100000, &Odometry_callback);
+  Subscriber joy_sub = nh.subscribe("/joy", 10000, &joy_callback);
+  Subscriber autonomy_status_sub = nh.subscribe("/AutonomyStatus", 10000, &autonomy_callback);
+
+  Publisher autonomy_status_pub = nh.advertise<std_msgs::Bool>("/AutonomyStatus", 1000);
 
   Publisher left_pub = nh.advertise<std_msgs::Int16>("/LmotorSpeed", 10000);
   Publisher right_pub = nh.advertise<std_msgs::Int16>("/RmotorSpeed", 10000);
   Publisher lateral_left_pub = nh.advertise<std_msgs::Int16>("/LmotorSpeed_lateral", 10000);
   Publisher lateral_right_pub = nh.advertise<std_msgs::Int16>("/RmotorSpeed_lateral", 10000);
-  Publisher autonomy_status_pub = nh.advertise<std_msgs::Bool>("/AutonomyStatus", 1000);
 
   Publisher linear_pos_pid_pub = nh.advertise<waypoint_follower_ros::PID>("/pid/lin_pos", 10000);
   Publisher linear_vel_pid_pub = nh.advertise<waypoint_follower_ros::PID>("/pid/lin_vel", 10000);
@@ -368,17 +400,4 @@ int main (int argc, char** argv)
     loop_rate.sleep();
   }
 
-}
-
-
-void RTR() {
-
-  goal_theta = atan2((goal_y-curr_y),(goal_x-curr_x));
-
-  if (abs(curr_theta - goal_theta) > deg2Rad(angTolerance)){ // if angle error is too big
-    controller_update(false); // translation is false, only control angle
-  }
-  else {
-    controller_update(true); // translation is false, only control angle
-  }
 }
