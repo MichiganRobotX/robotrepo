@@ -1,0 +1,8 @@
+prefix=/home/wamv/Documents/robotrepo/RobotX_WS/install
+
+Name: imu_complementary_filter
+Description: Description of imu_complementary_filter
+Version: 1.0.15
+Cflags: -I/home/wamv/Documents/robotrepo/RobotX_WS/install/include
+Libs: -L/home/wamv/Documents/robotrepo/RobotX_WS/install/lib -lcomplementary_filter
+Requires: message_filters roscpp sensor_msgs std_msgs tf

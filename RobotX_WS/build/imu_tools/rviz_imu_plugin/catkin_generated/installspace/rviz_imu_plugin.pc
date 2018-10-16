@@ -1,0 +1,8 @@
+prefix=/home/wamv/Documents/robotrepo/RobotX_WS/install
+
+Name: rviz_imu_plugin
+Description: Description of rviz_imu_plugin
+Version: 1.0.15
+Cflags: 
+Libs: -L/home/wamv/Documents/robotrepo/RobotX_WS/install/lib 
+Requires: rviz

@@ -1,0 +1,8 @@
+prefix=/home/wamv/Documents/robotrepo/RobotX_WS/install
+
+Name: left_motor_control
+Description: Description of left_motor_control
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/wamv/Documents/robotrepo/RobotX_WS/install/lib 
+Requires: 
