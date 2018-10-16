@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/driver_nodelet.dir/driver.cc.o"
   "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/libdriver_nodelet.pdb"
   "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/libdriver_nodelet.so"
+  "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/libdriver_nodelet.pdb"
+  "CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so"
 )
 
 # Per-language clean rules from dependency scanning.

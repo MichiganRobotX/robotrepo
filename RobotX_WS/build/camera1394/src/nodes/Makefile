@@ -100,28 +100,6 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
-
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -132,6 +110,17 @@ install/local: preinstall
 install/local/fast: install/local
 
 .PHONY : install/local/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -180,6 +169,11 @@ camera1394_node/fast:
 	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f camera1394/src/nodes/CMakeFiles/camera1394_node.dir/build.make camera1394/src/nodes/CMakeFiles/camera1394_node.dir/build
 .PHONY : camera1394_node/fast
 
+# Manual pre-install relink rule for target.
+camera1394_node/preinstall:
+	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 camera1394/src/nodes/CMakeFiles/camera1394_node.dir/preinstall
+.PHONY : camera1394_node/preinstall
+
 # Convenience name for target.
 camera1394/src/nodes/CMakeFiles/camera1394_nodelet.dir/rule:
 	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 camera1394/src/nodes/CMakeFiles/camera1394_nodelet.dir/rule
@@ -194,6 +188,11 @@ camera1394_nodelet: camera1394/src/nodes/CMakeFiles/camera1394_nodelet.dir/rule
 camera1394_nodelet/fast:
 	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f camera1394/src/nodes/CMakeFiles/camera1394_nodelet.dir/build.make camera1394/src/nodes/CMakeFiles/camera1394_nodelet.dir/build
 .PHONY : camera1394_nodelet/fast
+
+# Manual pre-install relink rule for target.
+camera1394_nodelet/preinstall:
+	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 camera1394/src/nodes/CMakeFiles/camera1394_nodelet.dir/preinstall
+.PHONY : camera1394_nodelet/preinstall
 
 camera1394_node.o: camera1394_node.cpp.o
 
@@ -469,11 +468,10 @@ help:
 	@echo "... install"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... test"
 	@echo "... camera1394_node"
 	@echo "... camera1394_nodelet"
-	@echo "... install/strip"
 	@echo "... install/local"
+	@echo "... test"
 	@echo "... camera1394_node.o"
 	@echo "... camera1394_node.i"
 	@echo "... camera1394_node.s"

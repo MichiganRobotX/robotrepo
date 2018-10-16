@@ -2,6 +2,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ekf.dir/src/ekf.cpp.o"
   "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/libekf.pdb"
   "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/libekf.so"
+  "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/libekf.pdb"
+  "CMakeFiles/CMakeRelink.dir/libekf.so"
 )
 
 # Per-language clean rules from dependency scanning.

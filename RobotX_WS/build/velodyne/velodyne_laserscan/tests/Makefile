@@ -100,17 +100,6 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
-
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -301,21 +290,6 @@ _run_tests_velodyne_laserscan_rostest_tests_system_nodelet.test/fast:
 .PHONY : _run_tests_velodyne_laserscan_rostest_tests_system_nodelet.test/fast
 
 # Convenience name for target.
-velodyne/velodyne_laserscan/tests/CMakeFiles/_run_tests_velodyne_laserscan.dir/rule:
-	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 velodyne/velodyne_laserscan/tests/CMakeFiles/_run_tests_velodyne_laserscan.dir/rule
-.PHONY : velodyne/velodyne_laserscan/tests/CMakeFiles/_run_tests_velodyne_laserscan.dir/rule
-
-# Convenience name for target.
-_run_tests_velodyne_laserscan: velodyne/velodyne_laserscan/tests/CMakeFiles/_run_tests_velodyne_laserscan.dir/rule
-
-.PHONY : _run_tests_velodyne_laserscan
-
-# fast build rule for target.
-_run_tests_velodyne_laserscan/fast:
-	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f velodyne/velodyne_laserscan/tests/CMakeFiles/_run_tests_velodyne_laserscan.dir/build.make velodyne/velodyne_laserscan/tests/CMakeFiles/_run_tests_velodyne_laserscan.dir/build
-.PHONY : _run_tests_velodyne_laserscan/fast
-
-# Convenience name for target.
 velodyne/velodyne_laserscan/tests/CMakeFiles/_run_tests_velodyne_laserscan_rostest.dir/rule:
 	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 velodyne/velodyne_laserscan/tests/CMakeFiles/_run_tests_velodyne_laserscan_rostest.dir/rule
 .PHONY : velodyne/velodyne_laserscan/tests/CMakeFiles/_run_tests_velodyne_laserscan_rostest.dir/rule
@@ -404,6 +378,21 @@ run_tests_velodyne_laserscan_rostest_tests_system_nodelet.test: velodyne/velodyn
 run_tests_velodyne_laserscan_rostest_tests_system_nodelet.test/fast:
 	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f velodyne/velodyne_laserscan/tests/CMakeFiles/run_tests_velodyne_laserscan_rostest_tests_system_nodelet.test.dir/build.make velodyne/velodyne_laserscan/tests/CMakeFiles/run_tests_velodyne_laserscan_rostest_tests_system_nodelet.test.dir/build
 .PHONY : run_tests_velodyne_laserscan_rostest_tests_system_nodelet.test/fast
+
+# Convenience name for target.
+velodyne/velodyne_laserscan/tests/CMakeFiles/_run_tests_velodyne_laserscan.dir/rule:
+	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 velodyne/velodyne_laserscan/tests/CMakeFiles/_run_tests_velodyne_laserscan.dir/rule
+.PHONY : velodyne/velodyne_laserscan/tests/CMakeFiles/_run_tests_velodyne_laserscan.dir/rule
+
+# Convenience name for target.
+_run_tests_velodyne_laserscan: velodyne/velodyne_laserscan/tests/CMakeFiles/_run_tests_velodyne_laserscan.dir/rule
+
+.PHONY : _run_tests_velodyne_laserscan
+
+# fast build rule for target.
+_run_tests_velodyne_laserscan/fast:
+	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f velodyne/velodyne_laserscan/tests/CMakeFiles/_run_tests_velodyne_laserscan.dir/build.make velodyne/velodyne_laserscan/tests/CMakeFiles/_run_tests_velodyne_laserscan.dir/build
+.PHONY : _run_tests_velodyne_laserscan/fast
 
 # Convenience name for target.
 velodyne/velodyne_laserscan/tests/CMakeFiles/test_lazy_subscriber_nodelet.dir/rule:
@@ -498,15 +487,14 @@ help:
 	@echo "... run_tests_velodyne_laserscan"
 	@echo "... clean_test_results_velodyne_laserscan"
 	@echo "... _run_tests_velodyne_laserscan_rostest_tests_system_nodelet.test"
-	@echo "... install"
-	@echo "... _run_tests_velodyne_laserscan"
 	@echo "... _run_tests_velodyne_laserscan_rostest"
 	@echo "... test_system_nodelet"
 	@echo "... test_system_node"
 	@echo "... _run_tests_velodyne_laserscan_rostest_tests_system_node.test"
 	@echo "... run_tests_velodyne_laserscan_rostest_tests_system_node.test"
 	@echo "... run_tests_velodyne_laserscan_rostest_tests_system_nodelet.test"
-	@echo "... install/strip"
+	@echo "... _run_tests_velodyne_laserscan"
+	@echo "... install"
 	@echo "... install/local"
 	@echo "... test_lazy_subscriber_nodelet"
 	@echo "... rebuild_cache"

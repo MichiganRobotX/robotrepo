@@ -56,6 +56,16 @@ CMAKE_BINARY_DIR = /home/wamv/Documents/robotrepo/RobotX_WS/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\" \"main\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -77,27 +87,6 @@ test:
 test/fast: test
 
 .PHONY : test/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\" \"main\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
 
 # Special rule for the target install
 install: preinstall
@@ -225,6 +214,11 @@ imu_filter/fast:
 	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f imu_tools/imu_filter_madgwick/CMakeFiles/imu_filter.dir/build.make imu_tools/imu_filter_madgwick/CMakeFiles/imu_filter.dir/build
 .PHONY : imu_filter/fast
 
+# Manual pre-install relink rule for target.
+imu_filter/preinstall:
+	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 imu_tools/imu_filter_madgwick/CMakeFiles/imu_filter.dir/preinstall
+.PHONY : imu_filter/preinstall
+
 # Convenience name for target.
 imu_tools/imu_filter_madgwick/CMakeFiles/imu_filter_node.dir/rule:
 	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 imu_tools/imu_filter_madgwick/CMakeFiles/imu_filter_node.dir/rule
@@ -240,6 +234,11 @@ imu_filter_node/fast:
 	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f imu_tools/imu_filter_madgwick/CMakeFiles/imu_filter_node.dir/build.make imu_tools/imu_filter_madgwick/CMakeFiles/imu_filter_node.dir/build
 .PHONY : imu_filter_node/fast
 
+# Manual pre-install relink rule for target.
+imu_filter_node/preinstall:
+	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 imu_tools/imu_filter_madgwick/CMakeFiles/imu_filter_node.dir/preinstall
+.PHONY : imu_filter_node/preinstall
+
 # Convenience name for target.
 imu_tools/imu_filter_madgwick/CMakeFiles/imu_filter_nodelet.dir/rule:
 	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 imu_tools/imu_filter_madgwick/CMakeFiles/imu_filter_nodelet.dir/rule
@@ -254,6 +253,11 @@ imu_filter_nodelet: imu_tools/imu_filter_madgwick/CMakeFiles/imu_filter_nodelet.
 imu_filter_nodelet/fast:
 	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f imu_tools/imu_filter_madgwick/CMakeFiles/imu_filter_nodelet.dir/build.make imu_tools/imu_filter_madgwick/CMakeFiles/imu_filter_nodelet.dir/build
 .PHONY : imu_filter_nodelet/fast
+
+# Manual pre-install relink rule for target.
+imu_filter_nodelet/preinstall:
+	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 imu_tools/imu_filter_madgwick/CMakeFiles/imu_filter_nodelet.dir/preinstall
+.PHONY : imu_filter_nodelet/preinstall
 
 # Convenience name for target.
 imu_tools/imu_filter_madgwick/CMakeFiles/imu_filter_madgwick-madgwick_test.dir/rule:
@@ -540,10 +544,9 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... list_install_components"
-	@echo "... install/strip"
 	@echo "... _run_tests_imu_filter_madgwick_gtest_imu_filter_madgwick-madgwick_test"
 	@echo "... clean_test_results_imu_filter_madgwick"
 	@echo "... run_tests_imu_filter_madgwick_gtest_imu_filter_madgwick-madgwick_test"

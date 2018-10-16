@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/slam_gmapping_replay.dir/src/replay.cpp.o"
   "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/gmapping/slam_gmapping_replay.pdb"
   "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/gmapping/slam_gmapping_replay"
+  "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/gmapping/slam_gmapping_replay.pdb"
+  "CMakeFiles/CMakeRelink.dir/slam_gmapping_replay"
 )
 
 # Per-language clean rules from dependency scanning.

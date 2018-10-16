@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/velodyne_laserscan.dir/src/nodelet.cpp.o"
   "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/libvelodyne_laserscan.pdb"
   "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/libvelodyne_laserscan.so"
+  "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/libvelodyne_laserscan.pdb"
+  "CMakeFiles/CMakeRelink.dir/libvelodyne_laserscan.so"
 )
 
 # Per-language clean rules from dependency scanning.

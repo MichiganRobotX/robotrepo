@@ -1,8 +1,0 @@
-prefix=/home/wamv/Documents/robotrepo/RobotX_WS/devel
-
-Name: driver_base
-Description: Description of driver_base
-Version: 1.6.8
-Cflags: -I/home/wamv/Documents/robotrepo/RobotX_WS/devel/include -I/home/wamv/Documents/robotrepo/RobotX_WS/src/driver_base/include -I/usr/include
-Libs: -L/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib 
-Requires: message_runtime std_msgs

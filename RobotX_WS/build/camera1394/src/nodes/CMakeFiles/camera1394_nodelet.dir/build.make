@@ -322,6 +322,79 @@ camera1394/src/nodes/CMakeFiles/camera1394_nodelet.dir/build: /home/wamv/Documen
 
 .PHONY : camera1394/src/nodes/CMakeFiles/camera1394_nodelet.dir/build
 
+# Object files for target camera1394_nodelet
+camera1394_nodelet_OBJECTS = \
+"CMakeFiles/camera1394_nodelet.dir/nodelet.cpp.o" \
+"CMakeFiles/camera1394_nodelet.dir/driver1394.cpp.o" \
+"CMakeFiles/camera1394_nodelet.dir/dev_camera1394.cpp.o" \
+"CMakeFiles/camera1394_nodelet.dir/features.cpp.o" \
+"CMakeFiles/camera1394_nodelet.dir/format7.cpp.o" \
+"CMakeFiles/camera1394_nodelet.dir/modes.cpp.o" \
+"CMakeFiles/camera1394_nodelet.dir/registers.cpp.o" \
+"CMakeFiles/camera1394_nodelet.dir/trigger.cpp.o"
+
+# External object files for target camera1394_nodelet
+camera1394_nodelet_EXTERNAL_OBJECTS =
+
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: camera1394/src/nodes/CMakeFiles/camera1394_nodelet.dir/nodelet.cpp.o
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: camera1394/src/nodes/CMakeFiles/camera1394_nodelet.dir/driver1394.cpp.o
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: camera1394/src/nodes/CMakeFiles/camera1394_nodelet.dir/dev_camera1394.cpp.o
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: camera1394/src/nodes/CMakeFiles/camera1394_nodelet.dir/features.cpp.o
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: camera1394/src/nodes/CMakeFiles/camera1394_nodelet.dir/format7.cpp.o
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: camera1394/src/nodes/CMakeFiles/camera1394_nodelet.dir/modes.cpp.o
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: camera1394/src/nodes/CMakeFiles/camera1394_nodelet.dir/registers.cpp.o
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: camera1394/src/nodes/CMakeFiles/camera1394_nodelet.dir/trigger.cpp.o
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: camera1394/src/nodes/CMakeFiles/camera1394_nodelet.dir/build.make
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /opt/ros/kinetic/lib/libcamera_info_manager.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /opt/ros/kinetic/lib/libcamera_calibration_parsers.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /opt/ros/kinetic/lib/libdynamic_reconfigure_config_init_mutex.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /opt/ros/kinetic/lib/libimage_transport.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /opt/ros/kinetic/lib/libnodeletlib.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /usr/lib/x86_64-linux-gnu/libuuid.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /opt/ros/kinetic/lib/libbondcpp.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /usr/lib/x86_64-linux-gnu/libtinyxml2.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /opt/ros/kinetic/lib/libclass_loader.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /usr/lib/libPocoFoundation.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /usr/lib/x86_64-linux-gnu/libdl.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /opt/ros/kinetic/lib/libroslib.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /opt/ros/kinetic/lib/librospack.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /usr/lib/x86_64-linux-gnu/libpython2.7.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_program_options.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /usr/lib/x86_64-linux-gnu/libtinyxml.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /opt/ros/kinetic/lib/libtf.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /opt/ros/kinetic/lib/libtf2_ros.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /opt/ros/kinetic/lib/libactionlib.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /opt/ros/kinetic/lib/libmessage_filters.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /opt/ros/kinetic/lib/libroscpp.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_signals.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /opt/ros/kinetic/lib/libxmlrpcpp.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /opt/ros/kinetic/lib/libtf2.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /opt/ros/kinetic/lib/libroscpp_serialization.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /opt/ros/kinetic/lib/librosconsole.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /opt/ros/kinetic/lib/librosconsole_log4cxx.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /opt/ros/kinetic/lib/librosconsole_backend_interface.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_regex.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /opt/ros/kinetic/lib/librostime.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /opt/ros/kinetic/lib/libcpp_common.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_system.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_thread.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /usr/lib/x86_64-linux-gnu/libpthread.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: /usr/lib/x86_64-linux-gnu/libdc1394.so
+camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so: camera1394/src/nodes/CMakeFiles/camera1394_nodelet.dir/relink.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wamv/Documents/robotrepo/RobotX_WS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX shared library CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so"
+	cd /home/wamv/Documents/robotrepo/RobotX_WS/build/camera1394/src/nodes && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/camera1394_nodelet.dir/relink.txt --verbose=$(VERBOSE)
+
+# Rule to relink during preinstall.
+camera1394/src/nodes/CMakeFiles/camera1394_nodelet.dir/preinstall: camera1394/src/nodes/CMakeFiles/CMakeRelink.dir/libcamera1394_nodelet.so
+
+.PHONY : camera1394/src/nodes/CMakeFiles/camera1394_nodelet.dir/preinstall
+
 camera1394/src/nodes/CMakeFiles/camera1394_nodelet.dir/requires: camera1394/src/nodes/CMakeFiles/camera1394_nodelet.dir/nodelet.cpp.o.requires
 camera1394/src/nodes/CMakeFiles/camera1394_nodelet.dir/requires: camera1394/src/nodes/CMakeFiles/camera1394_nodelet.dir/driver1394.cpp.o.requires
 camera1394/src/nodes/CMakeFiles/camera1394_nodelet.dir/requires: camera1394/src/nodes/CMakeFiles/camera1394_nodelet.dir/dev_camera1394.cpp.o.requires

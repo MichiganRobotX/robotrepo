@@ -156,6 +156,81 @@ imu_tools/imu_filter_madgwick/CMakeFiles/imu_filter_nodelet.dir/build: /home/wam
 
 .PHONY : imu_tools/imu_filter_madgwick/CMakeFiles/imu_filter_nodelet.dir/build
 
+# Object files for target imu_filter_nodelet
+imu_filter_nodelet_OBJECTS = \
+"CMakeFiles/imu_filter_nodelet.dir/src/imu_filter_nodelet.cpp.o"
+
+# External object files for target imu_filter_nodelet
+imu_filter_nodelet_EXTERNAL_OBJECTS =
+
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: imu_tools/imu_filter_madgwick/CMakeFiles/imu_filter_nodelet.dir/src/imu_filter_nodelet.cpp.o
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: imu_tools/imu_filter_madgwick/CMakeFiles/imu_filter_nodelet.dir/build.make
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/libimu_filter.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/liborocos-kdl.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/liborocos-kdl.so.1.3.0
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/libtf2_ros.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/libactionlib.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/libtf2.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/libnodeletlib.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/x86_64-linux-gnu/libuuid.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/libbondcpp.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/x86_64-linux-gnu/libtinyxml2.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/libclass_loader.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/libPocoFoundation.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/x86_64-linux-gnu/libdl.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/libroslib.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/librospack.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/x86_64-linux-gnu/libpython2.7.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_program_options.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/x86_64-linux-gnu/libtinyxml.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/libmessage_filters.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/libroscpp.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_signals.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/libxmlrpcpp.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/librosconsole.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/librosconsole_log4cxx.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/librosconsole_backend_interface.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_regex.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/libdynamic_reconfigure_config_init_mutex.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/libroscpp_serialization.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/librostime.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/libcpp_common.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_system.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_thread.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/x86_64-linux-gnu/libpthread.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_system.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_thread.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_signals.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/x86_64-linux-gnu/libpthread.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/libxmlrpcpp.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/librosconsole.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/librosconsole_log4cxx.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/librosconsole_backend_interface.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_regex.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/libdynamic_reconfigure_config_init_mutex.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/libroscpp_serialization.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/librostime.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /opt/ros/kinetic/lib/libcpp_common.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so
+imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so: imu_tools/imu_filter_madgwick/CMakeFiles/imu_filter_nodelet.dir/relink.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wamv/Documents/robotrepo/RobotX_WS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX shared library CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so"
+	cd /home/wamv/Documents/robotrepo/RobotX_WS/build/imu_tools/imu_filter_madgwick && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/imu_filter_nodelet.dir/relink.txt --verbose=$(VERBOSE)
+
+# Rule to relink during preinstall.
+imu_tools/imu_filter_madgwick/CMakeFiles/imu_filter_nodelet.dir/preinstall: imu_tools/imu_filter_madgwick/CMakeFiles/CMakeRelink.dir/libimu_filter_nodelet.so
+
+.PHONY : imu_tools/imu_filter_madgwick/CMakeFiles/imu_filter_nodelet.dir/preinstall
+
 imu_tools/imu_filter_madgwick/CMakeFiles/imu_filter_nodelet.dir/requires: imu_tools/imu_filter_madgwick/CMakeFiles/imu_filter_nodelet.dir/src/imu_filter_nodelet.cpp.o.requires
 
 .PHONY : imu_tools/imu_filter_madgwick/CMakeFiles/imu_filter_nodelet.dir/requires

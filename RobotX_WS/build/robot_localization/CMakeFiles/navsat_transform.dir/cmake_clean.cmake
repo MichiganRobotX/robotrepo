@@ -2,6 +2,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/navsat_transform.dir/src/navsat_transform.cpp.o"
   "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/libnavsat_transform.pdb"
   "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/libnavsat_transform.so"
+  "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/libnavsat_transform.pdb"
+  "CMakeFiles/CMakeRelink.dir/libnavsat_transform.so"
 )
 
 # Per-language clean rules from dependency scanning.

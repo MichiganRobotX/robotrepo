@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/velodyne_rawdata.dir/calibration.cc.o"
   "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/libvelodyne_rawdata.pdb"
   "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/libvelodyne_rawdata.so"
+  "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/libvelodyne_rawdata.pdb"
+  "CMakeFiles/CMakeRelink.dir/libvelodyne_rawdata.so"
 )
 
 # Per-language clean rules from dependency scanning.

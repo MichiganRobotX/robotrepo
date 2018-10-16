@@ -1,8 +1,0 @@
-prefix=/home/wamv/Documents/robotrepo/RobotX_WS/devel
-
-Name: waypoint_follower
-Description: Description of waypoint_follower
-Version: 0.0.0
-Cflags: -I/home/wamv/Documents/robotrepo/RobotX_WS/devel/include
-Libs: -L/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib 
-Requires: message_runtime

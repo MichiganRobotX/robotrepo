@@ -122,17 +122,6 @@ test/fast: test
 
 .PHONY : test/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
-
 # The main all target
 all: cmake_check_build_system
 	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/wamv/Documents/robotrepo/RobotX_WS/build/CMakeFiles /home/wamv/Documents/robotrepo/RobotX_WS/build/robot_pose_ekf/CMakeFiles/progress.marks
@@ -435,6 +424,11 @@ robot_pose_ekf/fast:
 	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f robot_pose_ekf/CMakeFiles/robot_pose_ekf.dir/build.make robot_pose_ekf/CMakeFiles/robot_pose_ekf.dir/build
 .PHONY : robot_pose_ekf/fast
 
+# Manual pre-install relink rule for target.
+robot_pose_ekf/preinstall:
+	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 robot_pose_ekf/CMakeFiles/robot_pose_ekf.dir/preinstall
+.PHONY : robot_pose_ekf/preinstall
+
 # Convenience name for target.
 robot_pose_ekf/CMakeFiles/robot_pose_ekf_gencpp.dir/rule:
 	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 robot_pose_ekf/CMakeFiles/robot_pose_ekf_gencpp.dir/rule
@@ -721,7 +715,6 @@ help:
 	@echo "... _robot_pose_ekf_generate_messages_check_deps_GetStatus"
 	@echo "... robot_pose_ekf"
 	@echo "... robot_pose_ekf_gencpp"
-	@echo "... install/strip"
 	@echo "... robot_pose_ekf_generate_messages_py"
 	@echo "... robot_pose_ekf_genpy"
 	@echo "... test_robot_pose_ekf_zero_covariance"
