@@ -1,37 +1,38 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
-#include <waypoint_follower.h>
+// #include <waypoint_follower.h>
 
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
 #include <ros/ros.h>
 #include <std_msgs/Int16.h>
 #include <nav_msgs/Odometry.h>
 #include <sensor_msgs/Imu.h>
 #include <sensor_msgs/Joy.h>
 #include <geometry_msgs/PoseWithCovariance.h>
-#include <ros/ros.h>
+// #include <ros/ros.h>
 #include <math.h>
 #include <algorithm>
 #include <iostream>
 #include <string>
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
 #include <message_filters/subscriber.h>
 #include <message_filters/synchronizer.h>
 #include <message_filters/sync_policies/approximate_time.h>
 
 #include <std_msgs/Bool.h>
 
-#include "sensor_msgs/Imu.h"
-#include "sensor_msgs/NavSatFix.h"
-#include "geometry_msgs/Twist.h"
-#include <nav_msgs/Odometry.h>
+// #include "sensor_msgs/Imu.h"
+// #include "sensor_msgs/NavSatFix.h"
+// #include "geometry_msgs/Twist.h"
+// #include <nav_msgs/Odometry.h>
 
 #include <waypoint_follower_ros/PID.h>
 #include <waypoint_follower_ros/TuningParameters.h>
 
-using namespace ros;
-using namespace std;
+extern void RTR();
+extern void controller_init();
+extern void controller_update( bool transation_activated );
 
 #define PI 3.1415926
 #define MOVE_FORWORED_ANGLE_TOLORENCE PI/6 //rad
@@ -41,18 +42,19 @@ using namespace std;
 #define angTolerance 10 // in degrees
 #define distTolerance 1 // in meters
 
-extern double Distance(float x1, float y1, float x2, float y2);
-extern double deg2Rad(float deg);
-extern double rad2Deg(float rad);
-extern float goal_x, goal_y, goal_theta, curr_x, curr_y, curr_theta, curr_velX, curr_velY, curr_velTheta;
+using namespace ros;
+using namespace std;
+
+double Distance(float x1, float y1, float x2, float y2);
+double deg2Rad(float deg);
+double rad2Deg(float rad);
+
+float goal_x, goal_y, goal_theta, curr_x, curr_y, curr_theta, curr_velX, curr_velY, curr_velTheta;
 
 class PID {
 
-public:
+private:
   float prev_error;
-  float pterm;
-  float dterm;
-  float iterm;
 
 protected:
   float kp;
@@ -65,6 +67,11 @@ protected:
   float outputMin;
   float outputMax;
   float updateHz;
+
+public:
+    float pterm;
+    float dterm;
+    float iterm;
 
 
   PID(float P, float I, float D, float dT) {
@@ -92,7 +99,7 @@ protected:
 
   void Reset() { pterm = 0; iterm = 0; dterm = 0; }
 
-  float Compute(float error, waypoint_follower::PID &pid_msg) {
+  float Compute(float& error, waypoint_follower_ros::PID& pid_msg) {
     pterm = kp*error;
     pid_msg.p = pterm;
 
@@ -127,33 +134,18 @@ protected:
   }
 };
 
-PID angular_pos_pid(0.1, 0.1, 0.1, 20); // 20hz
-PID linear_pos_pid(0.1, 0.1, 0.1, 20); // 20hz
-PID linear_vel_pid(0.1, 0.1, 0.1, 20); // 20hz
+extern PID angular_pos_pid(0.1, 0.1, 0.1, 20); // 20hz
+extern PID linear_pos_pid(0.1, 0.1, 0.1, 20); // 20hz
+extern PID linear_vel_pid(0.1, 0.1, 0.1, 20); // 20hz
 
-std_msgs::Int16 motor_input_left;
-std_msgs::Int16 motor_input_right;
-std_msgs::Int16 lateral_motor_input_left;
-std_msgs::Int16 lateral_motor_input_right;
+extern std_msgs::Int16 motor_input_left;
+extern std_msgs::Int16 lateral_motor_input_left;
+extern std_msgs::Int16 lateral_motor_input_right;
+extern std_msgs::Int16 motor_input_right;
 
-waypoint_follower_ros::PID angular_pid_msg;
-waypoint_follower_ros::PID linear_pos_pid_msg;
-waypoint_follower_ros::PID linear_vel_pid_msg;
-waypoint_follower_ros::TuningParameters tuning_param_msg;
-
-extern Publisher left_pub;
-extern Publisher right_pub;
-extern Publisher lateral_left_pub;
-extern Publisher lateral_right_pub;
-
-extern Publisher angular_pid_pub;
-extern Publisher linear_pos_pid_pub;
-extern Publisher linear_vel_pid_pub;
-extern Publisher tuning_param_pub;
-
-linear_pos_pid_pub = nh.advertise<waypoint_follower_ros::PID>("/pid/lin_pos", 10000);
-linear_vel_pid_pub = nh.advertise<waypoint_follower_ros::PID>("/pid/lin_vel", 10000);
-angular_pid_pub = nh.advertise<waypoint_follower_ros::PID>("/pid/angular", 10000);
-tuning_param_pub = nh.advertise<waypoint_follower_ros::TuningParameters>("/pid/tuning_params", 10000);
+extern waypoint_follower_ros::PID angular_pid_msg;
+extern waypoint_follower_ros::PID linear_pos_pid_msg;
+extern waypoint_follower_ros::PID linear_vel_pid_msg;
+extern waypoint_follower_ros::TuningParameters tuning_param_msg;
 
 #endif

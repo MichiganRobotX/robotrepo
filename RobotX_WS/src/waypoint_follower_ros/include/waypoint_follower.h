@@ -34,16 +34,16 @@ using namespace std;
 #define distTolerance 1 // in meters
 #define PI 3.1415926
 // Help functions
-double Distance(float x1, float y1, float x2, float y2);
-double deg2Rad(float deg);
-double rad2Deg(float rad);
+// double Distance(float x1, float y1, float x2, float y2);
+// double deg2Rad(float deg);
+// double rad2Deg(float rad);
 // position vector
-float goal_x, goal_y, goal_theta, curr_x, curr_y, curr_theta, curr_velX, curr_velY, curr_velTheta;
-extern void RTR();
-extern void controller_init();
+// float goal_x, goal_y, goal_theta, curr_x, curr_y, curr_theta, curr_velX, curr_velY, curr_velTheta;
+void RTR();
+// void controller_init();
 
 //Path
-vector< vector<int> > square_waypoints();
+vector< vector<int> > square_waypoints(1, vector<int>());
 
 // Global Variables
 bool activate = true;

@@ -1,5 +1,20 @@
 #include "controller.h"
 
+
+// Help functions
+double Distance(float x1, float y1, float x2, float y2) {
+    return sqrt((x2-x1)*(x2-x1)+ (y2-y1)*(y2-y1));
+}
+
+double deg2Rad(float deg) {
+    return deg*PI/180;
+}
+
+double rad2Deg(float rad) {
+    return rad*180/PI;
+}
+
+
 //*********************************************************************************************************
 //********************************************PID Controller***********************************************
 //*********************************************************************************************************
@@ -21,21 +36,21 @@ void controller_init() {
 }
 
 // controller update HERE
-void controller_update( bool transation_activated ) {
-
+void controller_update( bool transation_activated )
+{
   // Linear pid update
   float errX = Distance(curr_x, curr_y, goal_x, goal_y);
-  float outX = linear_pos_pid.Compute(errX, &linear_pos_pid_msg);
+  float outX = linear_pos_pid.Compute(errX, linear_pos_pid_msg);
   tuning_param_msg.out_x = outX;
 
   // Linear vel pid update
   float errVel = outX - Distance(curr_velX, curr_velY, 0, 0);
-  float outVel = linear_vel_pid.Compute(errVel, &linear_vel_pid_msg);
+  float outVel = linear_vel_pid.Compute(errVel, linear_vel_pid_msg);
   tuning_param_msg.out_v = outVel;
 
   // angular pid update
   float errAng = goal_theta - curr_theta;
-  float outAng = angular_pos_pid.Compute(errAng, &angular_pid_msg);
+  float outAng = angular_pos_pid.Compute(errAng, angular_pid_msg);
   tuning_param_msg.err_v = outVel;
 
   if(!transation_activated) outVel = 0; // forward speed = 0;
@@ -64,17 +79,4 @@ void controller_update( bool transation_activated ) {
   linear_vel_pid_pub.publish(linear_vel_pid_msg);
   angular_pid_pub.publish(angular_pid_msg);
   tuning_param_pub.publish(tuning_param_msg);
-}
-
-
-void RTR() {
-
-  goal_theta = atan2((goal_y-curr_y),(goal_x-curr_x));
-
-  if (abs(curr_theta - goal_theta) > deg2Rad(angTolerance)){ // if angle error is too big
-    controller_update(false); // translation is false, only control angle
-  }
-  else {
-    controller_update(true); // translation is false, only control angle
-  }
 }
