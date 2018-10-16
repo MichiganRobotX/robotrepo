@@ -78,6 +78,17 @@ test/fast: test
 
 .PHONY : test/fast
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -183,11 +194,6 @@ gps_common/utm_odometry_node: gps_common/CMakeFiles/gps_common/utm_odometry_node
 gps_common/utm_odometry_node/fast:
 	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f gps_common/CMakeFiles/gps_common/utm_odometry_node.dir/build.make gps_common/CMakeFiles/gps_common/utm_odometry_node.dir/build
 .PHONY : gps_common/utm_odometry_node/fast
-
-# Manual pre-install relink rule for target.
-gps_common/utm_odometry_node/preinstall:
-	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 gps_common/CMakeFiles/gps_common/utm_odometry_node.dir/preinstall
-.PHONY : gps_common/utm_odometry_node/preinstall
 
 # Convenience name for target.
 gps_common/CMakeFiles/gps_common_genpy.dir/rule:
@@ -746,6 +752,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... install/strip"
 	@echo "... edit_cache"
 	@echo "... wamv_odometry"
 	@echo "... gps_common/utm_odometry_node"

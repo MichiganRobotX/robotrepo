@@ -2,8 +2,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/ros_filter_utilities.dir/src/ros_filter_utilities.cpp.o"
   "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/libros_filter_utilities.pdb"
   "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/libros_filter_utilities.so"
-  "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/libros_filter_utilities.pdb"
-  "CMakeFiles/CMakeRelink.dir/libros_filter_utilities.so"
 )
 
 # Per-language clean rules from dependency scanning.

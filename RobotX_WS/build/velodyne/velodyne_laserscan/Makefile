@@ -122,6 +122,17 @@ install/local/fast: install/local
 
 .PHONY : install/local/fast
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
 	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/wamv/Documents/robotrepo/RobotX_WS/build/CMakeFiles /home/wamv/Documents/robotrepo/RobotX_WS/build/velodyne/velodyne_laserscan/CMakeFiles/progress.marks
@@ -184,11 +195,6 @@ velodyne_laserscan_node/fast:
 	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f velodyne/velodyne_laserscan/CMakeFiles/velodyne_laserscan_node.dir/build.make velodyne/velodyne_laserscan/CMakeFiles/velodyne_laserscan_node.dir/build
 .PHONY : velodyne_laserscan_node/fast
 
-# Manual pre-install relink rule for target.
-velodyne_laserscan_node/preinstall:
-	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 velodyne/velodyne_laserscan/CMakeFiles/velodyne_laserscan_node.dir/preinstall
-.PHONY : velodyne_laserscan_node/preinstall
-
 # Convenience name for target.
 velodyne/velodyne_laserscan/CMakeFiles/velodyne_laserscan.dir/rule:
 	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 velodyne/velodyne_laserscan/CMakeFiles/velodyne_laserscan.dir/rule
@@ -203,11 +209,6 @@ velodyne_laserscan: velodyne/velodyne_laserscan/CMakeFiles/velodyne_laserscan.di
 velodyne_laserscan/fast:
 	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f velodyne/velodyne_laserscan/CMakeFiles/velodyne_laserscan.dir/build.make velodyne/velodyne_laserscan/CMakeFiles/velodyne_laserscan.dir/build
 .PHONY : velodyne_laserscan/fast
-
-# Manual pre-install relink rule for target.
-velodyne_laserscan/preinstall:
-	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 velodyne/velodyne_laserscan/CMakeFiles/velodyne_laserscan.dir/preinstall
-.PHONY : velodyne_laserscan/preinstall
 
 src/VelodyneLaserScan.o: src/VelodyneLaserScan.cpp.o
 
@@ -303,8 +304,9 @@ help:
 	@echo "... list_install_components"
 	@echo "... install"
 	@echo "... velodyne_laserscan_node"
-	@echo "... velodyne_laserscan"
 	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... velodyne_laserscan"
 	@echo "... src/VelodyneLaserScan.o"
 	@echo "... src/VelodyneLaserScan.i"
 	@echo "... src/VelodyneLaserScan.s"

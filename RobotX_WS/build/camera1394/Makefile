@@ -90,6 +90,17 @@ install/local/fast: install/local
 
 .PHONY : install/local/fast
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
+
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
@@ -1048,6 +1059,7 @@ help:
 	@echo "... install"
 	@echo "... edit_cache"
 	@echo "... install/local"
+	@echo "... install/strip"
 	@echo "... _run_tests_camera1394_rostest_tests_no_device_nodelet.test"
 	@echo "... run_tests_camera1394_rostest_tests_no_device_nodelet.test"
 	@echo "... clean_test_results_camera1394"

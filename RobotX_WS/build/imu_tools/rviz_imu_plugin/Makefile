@@ -111,6 +111,17 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -228,11 +239,6 @@ rviz_imu_plugin: imu_tools/rviz_imu_plugin/CMakeFiles/rviz_imu_plugin.dir/rule
 rviz_imu_plugin/fast:
 	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f imu_tools/rviz_imu_plugin/CMakeFiles/rviz_imu_plugin.dir/build.make imu_tools/rviz_imu_plugin/CMakeFiles/rviz_imu_plugin.dir/build
 .PHONY : rviz_imu_plugin/fast
-
-# Manual pre-install relink rule for target.
-rviz_imu_plugin/preinstall:
-	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 imu_tools/rviz_imu_plugin/CMakeFiles/rviz_imu_plugin.dir/preinstall
-.PHONY : rviz_imu_plugin/preinstall
 
 # Convenience name for target.
 imu_tools/rviz_imu_plugin/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule:
@@ -486,6 +492,7 @@ help:
 	@echo "... install/local"
 	@echo "... visualization_msgs_generate_messages_nodejs"
 	@echo "... list_install_components"
+	@echo "... install/strip"
 	@echo "... visualization_msgs_generate_messages_lisp"
 	@echo "... map_msgs_generate_messages_py"
 	@echo "... visualization_msgs_generate_messages_eus"

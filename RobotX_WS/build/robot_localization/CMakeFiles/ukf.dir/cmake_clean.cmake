@@ -2,8 +2,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/ukf.dir/src/ukf.cpp.o"
   "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/libukf.pdb"
   "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/libukf.so"
-  "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/libukf.pdb"
-  "CMakeFiles/CMakeRelink.dir/libukf.so"
 )
 
 # Per-language clean rules from dependency scanning.

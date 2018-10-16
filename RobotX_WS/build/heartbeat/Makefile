@@ -77,6 +77,17 @@ test/fast: test
 
 .PHONY : test/fast
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -100,17 +111,6 @@ install/local/fast: install/local
 
 .PHONY : install/local/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -121,6 +121,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -380,21 +391,6 @@ heartbeat_generate_messages_py/fast:
 .PHONY : heartbeat_generate_messages_py/fast
 
 # Convenience name for target.
-heartbeat/CMakeFiles/_heartbeat_generate_messages_check_deps_detectDeliver.dir/rule:
-	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 heartbeat/CMakeFiles/_heartbeat_generate_messages_check_deps_detectDeliver.dir/rule
-.PHONY : heartbeat/CMakeFiles/_heartbeat_generate_messages_check_deps_detectDeliver.dir/rule
-
-# Convenience name for target.
-_heartbeat_generate_messages_check_deps_detectDeliver: heartbeat/CMakeFiles/_heartbeat_generate_messages_check_deps_detectDeliver.dir/rule
-
-.PHONY : _heartbeat_generate_messages_check_deps_detectDeliver
-
-# fast build rule for target.
-_heartbeat_generate_messages_check_deps_detectDeliver/fast:
-	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f heartbeat/CMakeFiles/_heartbeat_generate_messages_check_deps_detectDeliver.dir/build.make heartbeat/CMakeFiles/_heartbeat_generate_messages_check_deps_detectDeliver.dir/build
-.PHONY : _heartbeat_generate_messages_check_deps_detectDeliver/fast
-
-# Convenience name for target.
 heartbeat/CMakeFiles/_heartbeat_generate_messages_check_deps_scanCode.dir/rule:
 	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 heartbeat/CMakeFiles/_heartbeat_generate_messages_check_deps_scanCode.dir/rule
 .PHONY : heartbeat/CMakeFiles/_heartbeat_generate_messages_check_deps_scanCode.dir/rule
@@ -423,6 +419,21 @@ signal: heartbeat/CMakeFiles/signal.dir/rule
 signal/fast:
 	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f heartbeat/CMakeFiles/signal.dir/build.make heartbeat/CMakeFiles/signal.dir/build
 .PHONY : signal/fast
+
+# Convenience name for target.
+heartbeat/CMakeFiles/_heartbeat_generate_messages_check_deps_detectDeliver.dir/rule:
+	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 heartbeat/CMakeFiles/_heartbeat_generate_messages_check_deps_detectDeliver.dir/rule
+.PHONY : heartbeat/CMakeFiles/_heartbeat_generate_messages_check_deps_detectDeliver.dir/rule
+
+# Convenience name for target.
+_heartbeat_generate_messages_check_deps_detectDeliver: heartbeat/CMakeFiles/_heartbeat_generate_messages_check_deps_detectDeliver.dir/rule
+
+.PHONY : _heartbeat_generate_messages_check_deps_detectDeliver
+
+# fast build rule for target.
+_heartbeat_generate_messages_check_deps_detectDeliver/fast:
+	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f heartbeat/CMakeFiles/_heartbeat_generate_messages_check_deps_detectDeliver.dir/build.make heartbeat/CMakeFiles/_heartbeat_generate_messages_check_deps_detectDeliver.dir/build
+.PHONY : _heartbeat_generate_messages_check_deps_detectDeliver/fast
 
 nodes/signal.o: nodes/signal.cpp.o
 
@@ -461,6 +472,7 @@ help:
 	@echo "... test"
 	@echo "... heartbeat_geneus"
 	@echo "... heartbeat_generate_messages_cpp"
+	@echo "... install/strip"
 	@echo "... install"
 	@echo "... heartbeat_generate_messages"
 	@echo "... heartbeat_genlisp"
@@ -476,11 +488,11 @@ help:
 	@echo "... heartbeat_gencpp"
 	@echo "... heartbeat_gennodejs"
 	@echo "... heartbeat_generate_messages_py"
-	@echo "... _heartbeat_generate_messages_check_deps_detectDeliver"
-	@echo "... edit_cache"
+	@echo "... rebuild_cache"
 	@echo "... _heartbeat_generate_messages_check_deps_scanCode"
 	@echo "... signal"
-	@echo "... rebuild_cache"
+	@echo "... _heartbeat_generate_messages_check_deps_detectDeliver"
+	@echo "... edit_cache"
 	@echo "... nodes/signal.o"
 	@echo "... nodes/signal.i"
 	@echo "... nodes/signal.s"

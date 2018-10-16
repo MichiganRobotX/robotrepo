@@ -163,64 +163,6 @@ velodyne/velodyne_driver/src/driver/CMakeFiles/driver_nodelet.dir/build: /home/w
 
 .PHONY : velodyne/velodyne_driver/src/driver/CMakeFiles/driver_nodelet.dir/build
 
-# Object files for target driver_nodelet
-driver_nodelet_OBJECTS = \
-"CMakeFiles/driver_nodelet.dir/nodelet.cc.o" \
-"CMakeFiles/driver_nodelet.dir/driver.cc.o"
-
-# External object files for target driver_nodelet
-driver_nodelet_EXTERNAL_OBJECTS =
-
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: velodyne/velodyne_driver/src/driver/CMakeFiles/driver_nodelet.dir/nodelet.cc.o
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: velodyne/velodyne_driver/src/driver/CMakeFiles/driver_nodelet.dir/driver.cc.o
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: velodyne/velodyne_driver/src/driver/CMakeFiles/driver_nodelet.dir/build.make
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/libvelodyne_input.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /opt/ros/kinetic/lib/libdynamic_reconfigure_config_init_mutex.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /opt/ros/kinetic/lib/libnodeletlib.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /usr/lib/x86_64-linux-gnu/libuuid.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /opt/ros/kinetic/lib/libbondcpp.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /usr/lib/x86_64-linux-gnu/libtinyxml2.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /opt/ros/kinetic/lib/libclass_loader.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /usr/lib/libPocoFoundation.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /usr/lib/x86_64-linux-gnu/libdl.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /opt/ros/kinetic/lib/libroslib.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /opt/ros/kinetic/lib/librospack.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /usr/lib/x86_64-linux-gnu/libpython2.7.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_program_options.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /usr/lib/x86_64-linux-gnu/libtinyxml.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /opt/ros/kinetic/lib/libtf.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /opt/ros/kinetic/lib/libtf2_ros.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /opt/ros/kinetic/lib/libactionlib.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /opt/ros/kinetic/lib/libmessage_filters.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /opt/ros/kinetic/lib/libroscpp.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_signals.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /opt/ros/kinetic/lib/libxmlrpcpp.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /opt/ros/kinetic/lib/libtf2.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /opt/ros/kinetic/lib/librosconsole.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /opt/ros/kinetic/lib/librosconsole_log4cxx.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /opt/ros/kinetic/lib/librosconsole_backend_interface.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_regex.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /opt/ros/kinetic/lib/libroscpp_serialization.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /opt/ros/kinetic/lib/librostime.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /opt/ros/kinetic/lib/libcpp_common.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_system.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_thread.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /usr/lib/x86_64-linux-gnu/libpthread.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so
-velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so: velodyne/velodyne_driver/src/driver/CMakeFiles/driver_nodelet.dir/relink.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wamv/Documents/robotrepo/RobotX_WS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX shared library CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so"
-	cd /home/wamv/Documents/robotrepo/RobotX_WS/build/velodyne/velodyne_driver/src/driver && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/driver_nodelet.dir/relink.txt --verbose=$(VERBOSE)
-
-# Rule to relink during preinstall.
-velodyne/velodyne_driver/src/driver/CMakeFiles/driver_nodelet.dir/preinstall: velodyne/velodyne_driver/src/driver/CMakeFiles/CMakeRelink.dir/libdriver_nodelet.so
-
-.PHONY : velodyne/velodyne_driver/src/driver/CMakeFiles/driver_nodelet.dir/preinstall
-
 velodyne/velodyne_driver/src/driver/CMakeFiles/driver_nodelet.dir/requires: velodyne/velodyne_driver/src/driver/CMakeFiles/driver_nodelet.dir/nodelet.cc.o.requires
 velodyne/velodyne_driver/src/driver/CMakeFiles/driver_nodelet.dir/requires: velodyne/velodyne_driver/src/driver/CMakeFiles/driver_nodelet.dir/driver.cc.o.requires
 

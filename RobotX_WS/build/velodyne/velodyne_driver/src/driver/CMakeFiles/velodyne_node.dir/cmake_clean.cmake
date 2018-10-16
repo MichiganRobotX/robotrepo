@@ -3,8 +3,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/velodyne_node.dir/driver.cc.o"
   "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/velodyne_driver/velodyne_node.pdb"
   "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/velodyne_driver/velodyne_node"
-  "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/velodyne_driver/velodyne_node.pdb"
-  "CMakeFiles/CMakeRelink.dir/velodyne_node"
 )
 
 # Per-language clean rules from dependency scanning.

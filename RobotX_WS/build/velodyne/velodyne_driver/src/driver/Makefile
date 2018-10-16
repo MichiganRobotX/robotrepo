@@ -111,6 +111,17 @@ test/fast: test
 
 .PHONY : test/fast
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
+
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -169,11 +180,6 @@ velodyne_node/fast:
 	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f velodyne/velodyne_driver/src/driver/CMakeFiles/velodyne_node.dir/build.make velodyne/velodyne_driver/src/driver/CMakeFiles/velodyne_node.dir/build
 .PHONY : velodyne_node/fast
 
-# Manual pre-install relink rule for target.
-velodyne_node/preinstall:
-	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 velodyne/velodyne_driver/src/driver/CMakeFiles/velodyne_node.dir/preinstall
-.PHONY : velodyne_node/preinstall
-
 # Convenience name for target.
 velodyne/velodyne_driver/src/driver/CMakeFiles/driver_nodelet.dir/rule:
 	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 velodyne/velodyne_driver/src/driver/CMakeFiles/driver_nodelet.dir/rule
@@ -188,11 +194,6 @@ driver_nodelet: velodyne/velodyne_driver/src/driver/CMakeFiles/driver_nodelet.di
 driver_nodelet/fast:
 	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f velodyne/velodyne_driver/src/driver/CMakeFiles/driver_nodelet.dir/build.make velodyne/velodyne_driver/src/driver/CMakeFiles/driver_nodelet.dir/build
 .PHONY : driver_nodelet/fast
-
-# Manual pre-install relink rule for target.
-driver_nodelet/preinstall:
-	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 velodyne/velodyne_driver/src/driver/CMakeFiles/driver_nodelet.dir/preinstall
-.PHONY : driver_nodelet/preinstall
 
 driver.o: driver.cc.o
 
@@ -288,9 +289,10 @@ help:
 	@echo "... install"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... velodyne_node"
 	@echo "... test"
+	@echo "... velodyne_node"
 	@echo "... driver_nodelet"
+	@echo "... install/strip"
 	@echo "... install/local"
 	@echo "... driver.o"
 	@echo "... driver.i"

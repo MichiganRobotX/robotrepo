@@ -79,6 +79,17 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -100,6 +111,17 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
+
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -110,17 +132,6 @@ install/local: preinstall
 install/local/fast: install/local
 
 .PHONY : install/local/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -170,6 +181,21 @@ driver_base_generate_messages_lisp/fast:
 .PHONY : driver_base_generate_messages_lisp/fast
 
 # Convenience name for target.
+ladybug3_ros/CMakeFiles/driver_base_generate_messages_eus.dir/rule:
+	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 ladybug3_ros/CMakeFiles/driver_base_generate_messages_eus.dir/rule
+.PHONY : ladybug3_ros/CMakeFiles/driver_base_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+driver_base_generate_messages_eus: ladybug3_ros/CMakeFiles/driver_base_generate_messages_eus.dir/rule
+
+.PHONY : driver_base_generate_messages_eus
+
+# fast build rule for target.
+driver_base_generate_messages_eus/fast:
+	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f ladybug3_ros/CMakeFiles/driver_base_generate_messages_eus.dir/build.make ladybug3_ros/CMakeFiles/driver_base_generate_messages_eus.dir/build
+.PHONY : driver_base_generate_messages_eus/fast
+
+# Convenience name for target.
 ladybug3_ros/CMakeFiles/driver_base_generate_messages_py.dir/rule:
 	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 ladybug3_ros/CMakeFiles/driver_base_generate_messages_py.dir/rule
 .PHONY : ladybug3_ros/CMakeFiles/driver_base_generate_messages_py.dir/rule
@@ -215,21 +241,6 @@ driver_jpeg_disk/fast:
 .PHONY : driver_jpeg_disk/fast
 
 # Convenience name for target.
-ladybug3_ros/CMakeFiles/ladybug3_ros_pkg_gencfg.dir/rule:
-	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 ladybug3_ros/CMakeFiles/ladybug3_ros_pkg_gencfg.dir/rule
-.PHONY : ladybug3_ros/CMakeFiles/ladybug3_ros_pkg_gencfg.dir/rule
-
-# Convenience name for target.
-ladybug3_ros_pkg_gencfg: ladybug3_ros/CMakeFiles/ladybug3_ros_pkg_gencfg.dir/rule
-
-.PHONY : ladybug3_ros_pkg_gencfg
-
-# fast build rule for target.
-ladybug3_ros_pkg_gencfg/fast:
-	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f ladybug3_ros/CMakeFiles/ladybug3_ros_pkg_gencfg.dir/build.make ladybug3_ros/CMakeFiles/ladybug3_ros_pkg_gencfg.dir/build
-.PHONY : ladybug3_ros_pkg_gencfg/fast
-
-# Convenience name for target.
 ladybug3_ros/CMakeFiles/driver_base_generate_messages_cpp.dir/rule:
 	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 ladybug3_ros/CMakeFiles/driver_base_generate_messages_cpp.dir/rule
 .PHONY : ladybug3_ros/CMakeFiles/driver_base_generate_messages_cpp.dir/rule
@@ -260,19 +271,19 @@ ladybug_node/fast:
 .PHONY : ladybug_node/fast
 
 # Convenience name for target.
-ladybug3_ros/CMakeFiles/driver_base_generate_messages_eus.dir/rule:
-	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 ladybug3_ros/CMakeFiles/driver_base_generate_messages_eus.dir/rule
-.PHONY : ladybug3_ros/CMakeFiles/driver_base_generate_messages_eus.dir/rule
+ladybug3_ros/CMakeFiles/ladybug3_ros_pkg_gencfg.dir/rule:
+	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f CMakeFiles/Makefile2 ladybug3_ros/CMakeFiles/ladybug3_ros_pkg_gencfg.dir/rule
+.PHONY : ladybug3_ros/CMakeFiles/ladybug3_ros_pkg_gencfg.dir/rule
 
 # Convenience name for target.
-driver_base_generate_messages_eus: ladybug3_ros/CMakeFiles/driver_base_generate_messages_eus.dir/rule
+ladybug3_ros_pkg_gencfg: ladybug3_ros/CMakeFiles/ladybug3_ros_pkg_gencfg.dir/rule
 
-.PHONY : driver_base_generate_messages_eus
+.PHONY : ladybug3_ros_pkg_gencfg
 
 # fast build rule for target.
-driver_base_generate_messages_eus/fast:
-	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f ladybug3_ros/CMakeFiles/driver_base_generate_messages_eus.dir/build.make ladybug3_ros/CMakeFiles/driver_base_generate_messages_eus.dir/build
-.PHONY : driver_base_generate_messages_eus/fast
+ladybug3_ros_pkg_gencfg/fast:
+	cd /home/wamv/Documents/robotrepo/RobotX_WS/build && $(MAKE) -f ladybug3_ros/CMakeFiles/ladybug3_ros_pkg_gencfg.dir/build.make ladybug3_ros/CMakeFiles/ladybug3_ros_pkg_gencfg.dir/build
+.PHONY : ladybug3_ros_pkg_gencfg/fast
 
 src/nodes/dev_ladybug.o: src/nodes/dev_ladybug.cpp.o
 
@@ -472,17 +483,18 @@ help:
 	@echo "... install"
 	@echo "... rebuild_cache"
 	@echo "... driver_base_generate_messages_lisp"
+	@echo "... test"
+	@echo "... driver_base_generate_messages_eus"
 	@echo "... edit_cache"
 	@echo "... driver_base_generate_messages_py"
 	@echo "... driver_base_generate_messages_nodejs"
 	@echo "... driver_jpeg_disk"
-	@echo "... list_install_components"
-	@echo "... ladybug3_ros_pkg_gencfg"
 	@echo "... driver_base_generate_messages_cpp"
 	@echo "... ladybug_node"
+	@echo "... list_install_components"
+	@echo "... ladybug3_ros_pkg_gencfg"
+	@echo "... install/strip"
 	@echo "... install/local"
-	@echo "... driver_base_generate_messages_eus"
-	@echo "... test"
 	@echo "... src/nodes/dev_ladybug.o"
 	@echo "... src/nodes/dev_ladybug.i"
 	@echo "... src/nodes/dev_ladybug.s"

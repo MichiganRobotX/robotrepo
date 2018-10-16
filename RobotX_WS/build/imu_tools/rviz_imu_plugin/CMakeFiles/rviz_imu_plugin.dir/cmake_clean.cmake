@@ -7,8 +7,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/rviz_imu_plugin.dir/rviz_imu_plugin_automoc.cpp.o"
   "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/librviz_imu_plugin.pdb"
   "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/librviz_imu_plugin.so"
-  "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/librviz_imu_plugin.pdb"
-  "CMakeFiles/CMakeRelink.dir/librviz_imu_plugin.so"
 )
 
 # Per-language clean rules from dependency scanning.

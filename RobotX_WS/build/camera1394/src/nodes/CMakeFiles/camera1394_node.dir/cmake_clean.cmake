@@ -9,8 +9,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/camera1394_node.dir/trigger.cpp.o"
   "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/camera1394/camera1394_node.pdb"
   "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/camera1394/camera1394_node"
-  "/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib/camera1394/camera1394_node.pdb"
-  "CMakeFiles/CMakeRelink.dir/camera1394_node"
 )
 
 # Per-language clean rules from dependency scanning.
