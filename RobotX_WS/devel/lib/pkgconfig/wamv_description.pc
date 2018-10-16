@@ -1,8 +1,0 @@
-prefix=/home/wamv/Documents/robotrepo/RobotX_WS/devel
-
-Name: wamv_description
-Description: Description of wamv_description
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib 
-Requires: 

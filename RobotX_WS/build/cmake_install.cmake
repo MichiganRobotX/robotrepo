@@ -139,6 +139,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/wamv/Documents/robotrepo/RobotX_WS/build/velodyne/velodyne_pointcloud/cmake_install.cmake")
   include("/home/wamv/Documents/robotrepo/RobotX_WS/build/wamv_autonomy/cmake_install.cmake")
   include("/home/wamv/Documents/robotrepo/RobotX_WS/build/wamv_bringup/cmake_install.cmake")
+  include("/home/wamv/Documents/robotrepo/RobotX_WS/build/waypoint_follower/cmake_install.cmake")
 
 endif()
 

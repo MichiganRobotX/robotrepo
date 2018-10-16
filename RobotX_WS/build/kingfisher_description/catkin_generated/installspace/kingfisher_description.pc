@@ -1,8 +1,0 @@
-prefix=/home/wamv/Documents/robotrepo/RobotX_WS/install
-
-Name: kingfisher_description
-Description: Description of kingfisher_description
-Version: 0.1.0
-Cflags: 
-Libs: -L/home/wamv/Documents/robotrepo/RobotX_WS/install/lib 
-Requires: 

@@ -6327,6 +6327,188 @@ wamv_tf_publisher/fast:
 	$(MAKE) -f wamv_bringup/CMakeFiles/wamv_tf_publisher.dir/build.make wamv_bringup/CMakeFiles/wamv_tf_publisher.dir/build
 .PHONY : wamv_tf_publisher/fast
 
+#=============================================================================
+# Target rules for targets named waypoint_follower
+
+# Build rule for target.
+waypoint_follower: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 waypoint_follower
+.PHONY : waypoint_follower
+
+# fast build rule for target.
+waypoint_follower/fast:
+	$(MAKE) -f waypoint_follower/CMakeFiles/waypoint_follower.dir/build.make waypoint_follower/CMakeFiles/waypoint_follower.dir/build
+.PHONY : waypoint_follower/fast
+
+#=============================================================================
+# Target rules for targets named waypoint_follower_genpy
+
+# Build rule for target.
+waypoint_follower_genpy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 waypoint_follower_genpy
+.PHONY : waypoint_follower_genpy
+
+# fast build rule for target.
+waypoint_follower_genpy/fast:
+	$(MAKE) -f waypoint_follower/CMakeFiles/waypoint_follower_genpy.dir/build.make waypoint_follower/CMakeFiles/waypoint_follower_genpy.dir/build
+.PHONY : waypoint_follower_genpy/fast
+
+#=============================================================================
+# Target rules for targets named waypoint_follower_generate_messages_py
+
+# Build rule for target.
+waypoint_follower_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 waypoint_follower_generate_messages_py
+.PHONY : waypoint_follower_generate_messages_py
+
+# fast build rule for target.
+waypoint_follower_generate_messages_py/fast:
+	$(MAKE) -f waypoint_follower/CMakeFiles/waypoint_follower_generate_messages_py.dir/build.make waypoint_follower/CMakeFiles/waypoint_follower_generate_messages_py.dir/build
+.PHONY : waypoint_follower_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named _waypoint_follower_generate_messages_check_deps_PID_msg
+
+# Build rule for target.
+_waypoint_follower_generate_messages_check_deps_PID_msg: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _waypoint_follower_generate_messages_check_deps_PID_msg
+.PHONY : _waypoint_follower_generate_messages_check_deps_PID_msg
+
+# fast build rule for target.
+_waypoint_follower_generate_messages_check_deps_PID_msg/fast:
+	$(MAKE) -f waypoint_follower/CMakeFiles/_waypoint_follower_generate_messages_check_deps_PID_msg.dir/build.make waypoint_follower/CMakeFiles/_waypoint_follower_generate_messages_check_deps_PID_msg.dir/build
+.PHONY : _waypoint_follower_generate_messages_check_deps_PID_msg/fast
+
+#=============================================================================
+# Target rules for targets named waypoint_follower_generate_messages
+
+# Build rule for target.
+waypoint_follower_generate_messages: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 waypoint_follower_generate_messages
+.PHONY : waypoint_follower_generate_messages
+
+# fast build rule for target.
+waypoint_follower_generate_messages/fast:
+	$(MAKE) -f waypoint_follower/CMakeFiles/waypoint_follower_generate_messages.dir/build.make waypoint_follower/CMakeFiles/waypoint_follower_generate_messages.dir/build
+.PHONY : waypoint_follower_generate_messages/fast
+
+#=============================================================================
+# Target rules for targets named waypoint_follower_generate_messages_lisp
+
+# Build rule for target.
+waypoint_follower_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 waypoint_follower_generate_messages_lisp
+.PHONY : waypoint_follower_generate_messages_lisp
+
+# fast build rule for target.
+waypoint_follower_generate_messages_lisp/fast:
+	$(MAKE) -f waypoint_follower/CMakeFiles/waypoint_follower_generate_messages_lisp.dir/build.make waypoint_follower/CMakeFiles/waypoint_follower_generate_messages_lisp.dir/build
+.PHONY : waypoint_follower_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named waypoint_follower_generate_messages_cpp
+
+# Build rule for target.
+waypoint_follower_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 waypoint_follower_generate_messages_cpp
+.PHONY : waypoint_follower_generate_messages_cpp
+
+# fast build rule for target.
+waypoint_follower_generate_messages_cpp/fast:
+	$(MAKE) -f waypoint_follower/CMakeFiles/waypoint_follower_generate_messages_cpp.dir/build.make waypoint_follower/CMakeFiles/waypoint_follower_generate_messages_cpp.dir/build
+.PHONY : waypoint_follower_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named waypoint_follower_generate_messages_eus
+
+# Build rule for target.
+waypoint_follower_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 waypoint_follower_generate_messages_eus
+.PHONY : waypoint_follower_generate_messages_eus
+
+# fast build rule for target.
+waypoint_follower_generate_messages_eus/fast:
+	$(MAKE) -f waypoint_follower/CMakeFiles/waypoint_follower_generate_messages_eus.dir/build.make waypoint_follower/CMakeFiles/waypoint_follower_generate_messages_eus.dir/build
+.PHONY : waypoint_follower_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named waypoint_follower_gennodejs
+
+# Build rule for target.
+waypoint_follower_gennodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 waypoint_follower_gennodejs
+.PHONY : waypoint_follower_gennodejs
+
+# fast build rule for target.
+waypoint_follower_gennodejs/fast:
+	$(MAKE) -f waypoint_follower/CMakeFiles/waypoint_follower_gennodejs.dir/build.make waypoint_follower/CMakeFiles/waypoint_follower_gennodejs.dir/build
+.PHONY : waypoint_follower_gennodejs/fast
+
+#=============================================================================
+# Target rules for targets named waypoint_follower_genlisp
+
+# Build rule for target.
+waypoint_follower_genlisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 waypoint_follower_genlisp
+.PHONY : waypoint_follower_genlisp
+
+# fast build rule for target.
+waypoint_follower_genlisp/fast:
+	$(MAKE) -f waypoint_follower/CMakeFiles/waypoint_follower_genlisp.dir/build.make waypoint_follower/CMakeFiles/waypoint_follower_genlisp.dir/build
+.PHONY : waypoint_follower_genlisp/fast
+
+#=============================================================================
+# Target rules for targets named _waypoint_follower_generate_messages_check_deps_TuningParameters
+
+# Build rule for target.
+_waypoint_follower_generate_messages_check_deps_TuningParameters: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _waypoint_follower_generate_messages_check_deps_TuningParameters
+.PHONY : _waypoint_follower_generate_messages_check_deps_TuningParameters
+
+# fast build rule for target.
+_waypoint_follower_generate_messages_check_deps_TuningParameters/fast:
+	$(MAKE) -f waypoint_follower/CMakeFiles/_waypoint_follower_generate_messages_check_deps_TuningParameters.dir/build.make waypoint_follower/CMakeFiles/_waypoint_follower_generate_messages_check_deps_TuningParameters.dir/build
+.PHONY : _waypoint_follower_generate_messages_check_deps_TuningParameters/fast
+
+#=============================================================================
+# Target rules for targets named waypoint_follower_gencpp
+
+# Build rule for target.
+waypoint_follower_gencpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 waypoint_follower_gencpp
+.PHONY : waypoint_follower_gencpp
+
+# fast build rule for target.
+waypoint_follower_gencpp/fast:
+	$(MAKE) -f waypoint_follower/CMakeFiles/waypoint_follower_gencpp.dir/build.make waypoint_follower/CMakeFiles/waypoint_follower_gencpp.dir/build
+.PHONY : waypoint_follower_gencpp/fast
+
+#=============================================================================
+# Target rules for targets named waypoint_follower_geneus
+
+# Build rule for target.
+waypoint_follower_geneus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 waypoint_follower_geneus
+.PHONY : waypoint_follower_geneus
+
+# fast build rule for target.
+waypoint_follower_geneus/fast:
+	$(MAKE) -f waypoint_follower/CMakeFiles/waypoint_follower_geneus.dir/build.make waypoint_follower/CMakeFiles/waypoint_follower_geneus.dir/build
+.PHONY : waypoint_follower_geneus/fast
+
+#=============================================================================
+# Target rules for targets named waypoint_follower_generate_messages_nodejs
+
+# Build rule for target.
+waypoint_follower_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 waypoint_follower_generate_messages_nodejs
+.PHONY : waypoint_follower_generate_messages_nodejs
+
+# fast build rule for target.
+waypoint_follower_generate_messages_nodejs/fast:
+	$(MAKE) -f waypoint_follower/CMakeFiles/waypoint_follower_generate_messages_nodejs.dir/build.make waypoint_follower/CMakeFiles/waypoint_follower_generate_messages_nodejs.dir/build
+.PHONY : waypoint_follower_generate_messages_nodejs/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -6814,6 +6996,20 @@ help:
 	@echo "... _run_tests_velodyne_pointcloud_roslaunch-check_.._launch"
 	@echo "... straightLine"
 	@echo "... wamv_tf_publisher"
+	@echo "... waypoint_follower"
+	@echo "... waypoint_follower_genpy"
+	@echo "... waypoint_follower_generate_messages_py"
+	@echo "... _waypoint_follower_generate_messages_check_deps_PID_msg"
+	@echo "... waypoint_follower_generate_messages"
+	@echo "... waypoint_follower_generate_messages_lisp"
+	@echo "... waypoint_follower_generate_messages_cpp"
+	@echo "... waypoint_follower_generate_messages_eus"
+	@echo "... waypoint_follower_gennodejs"
+	@echo "... waypoint_follower_genlisp"
+	@echo "... _waypoint_follower_generate_messages_check_deps_TuningParameters"
+	@echo "... waypoint_follower_gencpp"
+	@echo "... waypoint_follower_geneus"
+	@echo "... waypoint_follower_generate_messages_nodejs"
 .PHONY : help
 
 

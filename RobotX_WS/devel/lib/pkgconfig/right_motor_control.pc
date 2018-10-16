@@ -1,8 +1,0 @@
-prefix=/home/wamv/Documents/robotrepo/RobotX_WS/devel
-
-Name: right_motor_control
-Description: Description of right_motor_control
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib 
-Requires: 
