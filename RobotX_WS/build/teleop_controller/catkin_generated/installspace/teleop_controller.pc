@@ -1,8 +1,0 @@
-prefix=/home/wamv/Documents/robotrepo/RobotX_WS/install
-
-Name: teleop_controller
-Description: Description of teleop_controller
-Version: 1.0.0
-Cflags: 
-Libs: -L/home/wamv/Documents/robotrepo/RobotX_WS/install/lib 
-Requires: message_runtime

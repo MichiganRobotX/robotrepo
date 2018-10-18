@@ -1,8 +1,0 @@
-prefix=/home/wamv/Documents/robotrepo/RobotX_WS/devel
-
-Name: wamv_bringup
-Description: Description of wamv_bringup
-Version: 0.0.1
-Cflags: 
-Libs: -L/home/wamv/Documents/robotrepo/RobotX_WS/devel/lib 
-Requires: 

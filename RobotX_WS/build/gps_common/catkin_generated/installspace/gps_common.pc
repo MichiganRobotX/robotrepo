@@ -1,8 +1,0 @@
-prefix=/home/wamv/Documents/robotrepo/RobotX_WS/install
-
-Name: gps_common
-Description: Description of gps_common
-Version: 0.1.7
-Cflags: -I/home/wamv/Documents/robotrepo/RobotX_WS/install/include
-Libs: -L/home/wamv/Documents/robotrepo/RobotX_WS/install/lib 
-Requires: message_runtime
