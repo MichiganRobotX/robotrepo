@@ -2,7 +2,7 @@
 // Version 2.0
 // Last Updated: September 14, 2018
 // Owner: James Controller
-
+ 
 // Libraries
 #include <ros.h>
 #include <stdio.h>
@@ -25,8 +25,8 @@ void teleop (const std_msgs::Bool& isTeleop){
   std_msgs::Bool yellow_light = isTeleop;
 
   // Tell Yellow Light if it should be on 
-  if (yellow_light){
-    all_stop = 0;
+  if (yellow_light.data){
+    all_stop = 0; 
     digitalWrite(Relay_Orange, RELAY_ON);// set the Relay ON
   } else {
     digitalWrite(Relay_Orange, RELAY_OFF);// set the Relay OFF
@@ -38,7 +38,7 @@ void connection (const std_msgs::Bool& isConnected){
   std_msgs::Bool blue_light = isConnected;
 
   // Tell Blue Light if it should be on 
-  if (blue_light) {
+  if (blue_light.data) {
     digitalWrite(Relay_Blue, RELAY_ON);// set the Relay ON
   } else {
     digitalWrite(Relay_Blue, RELAY_OFF);// set the Relay OFF
@@ -51,7 +51,7 @@ void autonomous (const std_msgs::Bool& isAuto){
   std_msgs::Bool green_light = isAuto;
 
   // Tell Green Light if it should be on
-  if (green_light){
+  if (green_light.data){
     digitalWrite(Relay_Green, RELAY_ON);// set the Relay ON
     all_stop = 0;
   }else{
@@ -63,11 +63,11 @@ void stop_signal (const std_msgs::Bool& Stopped){
 
   std_msgs::Bool red_light = stopped;
   if (all_stop) {
-    red_light = 1;
+    red_light.data = 1;
   }
   
   // Tell Blue Light if it should be on 
-  if (red_light) {
+  if (red_light.data) {
     digitalWrite(Relay_Red, RELAY_ON);// set the Relay ON
   } else {
     digitalWrite(Relay_Red, RELAY_OFF);// set the Relay OFF
