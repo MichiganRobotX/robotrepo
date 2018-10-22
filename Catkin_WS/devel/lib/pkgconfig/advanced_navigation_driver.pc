@@ -1,0 +1,8 @@
+prefix=/home/robotx/github/robotrepo/Catkin_WS/devel
+
+Name: advanced_navigation_driver
+Description: Description of advanced_navigation_driver
+Version: 1.0.0
+Cflags: 
+Libs: -L/home/robotx/github/robotrepo/Catkin_WS/devel/lib 
+Requires: 

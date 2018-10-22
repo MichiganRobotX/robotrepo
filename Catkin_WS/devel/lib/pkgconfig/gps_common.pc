@@ -1,0 +1,8 @@
+prefix=/home/robotx/github/robotrepo/Catkin_WS/devel
+
+Name: gps_common
+Description: Description of gps_common
+Version: 0.1.7
+Cflags: -I/home/robotx/github/robotrepo/Catkin_WS/devel/include -I/home/robotx/github/robotrepo/Catkin_WS/src/gps_common/include
+Libs: -L/home/robotx/github/robotrepo/Catkin_WS/devel/lib 
+Requires: message_runtime

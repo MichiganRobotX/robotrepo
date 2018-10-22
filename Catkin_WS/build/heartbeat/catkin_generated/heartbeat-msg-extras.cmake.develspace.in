@@ -1,0 +1,2 @@
+set(heartbeat_MESSAGE_FILES "/home/robotx/github/robotrepo/Catkin_WS/src/heartbeat/msg/heartBeat.msg;/home/robotx/github/robotrepo/Catkin_WS/src/heartbeat/msg/entranceExit.msg;/home/robotx/github/robotrepo/Catkin_WS/src/heartbeat/msg/scanCode.msg;/home/robotx/github/robotrepo/Catkin_WS/src/heartbeat/msg/dockTask.msg;/home/robotx/github/robotrepo/Catkin_WS/src/heartbeat/msg/detectDeliver.msg;/home/robotx/github/robotrepo/Catkin_WS/src/heartbeat/msg/finalMsg.msg")
+set(heartbeat_SERVICE_FILES "")

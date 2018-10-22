@@ -1,0 +1,8 @@
+prefix=/home/robotx/github/robotrepo/Catkin_WS/install
+
+Name: kingfisher_description
+Description: Description of kingfisher_description
+Version: 0.1.0
+Cflags: 
+Libs: -L/home/robotx/github/robotrepo/Catkin_WS/install/lib 
+Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/robotx/github/robotrepo/Catkin_WS/install
+
+Name: waypointfollower
+Description: Description of waypointfollower
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/robotx/github/robotrepo/Catkin_WS/install/lib 
+Requires: 

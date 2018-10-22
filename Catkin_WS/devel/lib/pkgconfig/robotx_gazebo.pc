@@ -1,0 +1,8 @@
+prefix=/home/robotx/github/robotrepo/Catkin_WS/devel
+
+Name: robotx_gazebo
+Description: Description of robotx_gazebo
+Version: 0.0.1
+Cflags: -I/home/robotx/github/robotrepo/Catkin_WS/devel/include -I/home/robotx/github/robotrepo/Catkin_WS/src/robotx_gazebo/include
+Libs: -L/home/robotx/github/robotrepo/Catkin_WS/devel/lib 
+Requires: roscpp message_runtime std_msgs geometry_msgs nav_msgs

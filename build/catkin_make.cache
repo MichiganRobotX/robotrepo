@@ -1,0 +1,2 @@
+advanced_navigation_driver:camera1394:driver_base:ladybug3_ros:lidar_camera/src/aruco_mapping:lidar_camera/src/aruco_ros/aruco:lidar_camera/src/aruco_ros/aruco_msgs:lidar_camera/src/aruco_ros/aruco_ros:occupancy_grid:velodyne/velodyne:velodyne/velodyne_driver:velodyne/velodyne_laserscan:velodyne/velodyne_msgs:velodyne/velodyne_pointcloud
+-DCATKIN_DEVEL_PREFIX=/home/robotx/github/robotrepo/devel -DCMAKE_INSTALL_PREFIX=/home/robotx/github/robotrepo/install -G Unix Makefiles

@@ -1,0 +1,8 @@
+prefix=/home/robotx/github/robotrepo/Catkin_WS/devel
+
+Name: left_motor_control
+Description: Description of left_motor_control
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/robotx/github/robotrepo/Catkin_WS/devel/lib 
+Requires: 

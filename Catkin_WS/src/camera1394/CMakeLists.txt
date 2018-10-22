@@ -20,7 +20,7 @@ find_package(Boost REQUIRED COMPONENTS thread)
 # Resolve system dependency on libdc1394, which apparently does not
 # provide a CMake find_package() module.
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(DC1394_PKGCONF REQUIRED libdc1394-2)
+  pkg_check_modules(DC1394_PKGCONF REQUIRED libdc1394-2)
 find_path(DC1394_INCLUDE_DIR
   NAMES dc1394.h
   PATHS ${DC1394_PKGCONF_INCLUDE_DIRS}
